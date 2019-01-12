@@ -1,4 +1,4 @@
-package com.fun.finance.myapplication.test;
+package com.fun.finance.myapplication.settings;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,7 +13,7 @@ public class SingTop2Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sing_top);
+        setContentView(R.layout.activity_settings);
     }
 
     @Override

@@ -51,6 +51,7 @@ public class FinanceActivity extends AppCompatActivity {
     private ViewPager mViewPager;
 
     private Map<String, ?> mConcernedMarket;
+    private String SETTINGS_ACTION = "finance.intent.action.settings";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,11 +63,6 @@ public class FinanceActivity extends AppCompatActivity {
 
 
         SharedPreferences sp = getSharedPreferences("markets", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor=sp.edit();
-        editor.putString("黄金","0");
-        editor.putString("原油","0");
-        editor.putString("大豆","0");
-        editor.commit();
         mConcernedMarket = sp.getAll();
 
         // Create the adapter that will return a fragment for each of the three
@@ -86,9 +82,9 @@ public class FinanceActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-                startActivity(new Intent("android.intent.action.singtop"));
+                if (mSectionsPagerAdapter.currentFragment != null) {
+                    mSectionsPagerAdapter.currentFragment.loadWeb();
+                }
             }
         });
     }
@@ -121,6 +117,7 @@ public class FinanceActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            startActivity(new Intent(SETTINGS_ACTION));
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -146,20 +143,10 @@ public class FinanceActivity extends AppCompatActivity {
          * Returns a new instance of this fragment for the given section
          * number.
          */
-        public static PlaceholderFragment newInstance(int sectionNumber, Map<String, ?> markets) {
+        public static PlaceholderFragment newInstance(int sectionNumber) {
             PlaceholderFragment fragment = new PlaceholderFragment();
             Bundle args = new Bundle();
             args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            ArrayList<String> marketsList = new ArrayList<>();
-            Iterator iter = markets.entrySet().iterator();
-            while (iter.hasNext()) {
-                Map.Entry entry = (Map.Entry) iter.next();
-                String key = (String) entry.getKey();
-                String val = (String) entry.getValue();
-                marketsList.add(key);
-            }
-
-            args.putStringArrayList(ARG_MARKETS, marketsList);
             fragment.setArguments(args);
             return fragment;
         }
@@ -169,7 +156,32 @@ public class FinanceActivity extends AppCompatActivity {
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_finance, container, false);
             mWebView = (WebView) rootView.findViewById(R.id.webview);
-            mMarketsList = getArguments().getStringArrayList(ARG_MARKETS);
+            loadWeb();
+            return rootView;
+        }
+
+        @Override
+        public void onResume() {
+            super.onResume();
+        }
+
+        public WebView getWebView() {
+            return mWebView;
+        }
+
+        public void loadWeb() {
+            SharedPreferences sp = getContext().getSharedPreferences("markets", Context.MODE_PRIVATE);
+            Map<String, ?> markets = sp.getAll();
+
+            mMarketsList = new ArrayList<>();
+            Iterator iter = markets.entrySet().iterator();
+            while (iter.hasNext()) {
+                Map.Entry entry = (Map.Entry) iter.next();
+                String key = (String) entry.getKey();
+                String val = (String) entry.getValue();
+                mMarketsList.add(val);
+            }
+
             int position = getArguments().getInt(ARG_SECTION_NUMBER);
             if (mMarketsList != null && mMarketsList.size() > 0) {
                 StringBuilder sb = new StringBuilder("https://www.baidu.com/s?wd=");
@@ -186,13 +198,6 @@ public class FinanceActivity extends AppCompatActivity {
                     }
                 });
             }
-
-            return rootView;
-        }
-
-
-        public WebView getWebView() {
-            return mWebView;
         }
     }
 
@@ -212,7 +217,7 @@ public class FinanceActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position, mConcernedMarket);
+            return PlaceholderFragment.newInstance(position);
         }
 
         @Override
@@ -231,11 +236,14 @@ public class FinanceActivity extends AppCompatActivity {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        WebView currentWebView = mSectionsPagerAdapter.currentFragment.getWebView();
-        if ((keyCode == KEYCODE_BACK) && currentWebView.canGoBack()) {
-            currentWebView.goBack();
-            return true;
+        if (mSectionsPagerAdapter.currentFragment != null) {
+            WebView currentWebView = mSectionsPagerAdapter.currentFragment.getWebView();
+            if ((keyCode == KEYCODE_BACK) && currentWebView != null && currentWebView.canGoBack()) {
+                currentWebView.goBack();
+                return true;
+            }
         }
+
         return super.onKeyDown(keyCode, event);
     }
 }

@@ -22,18 +22,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".test.SingTopActivity"
+            android:name=".settings.SettingsActivity"
             android:launchMode="singleInstance"
             android:label="top1"
             android:theme="@style/AppTheme">
             <intent-filter>
-                <action android:name="android.intent.action.singtop" />
+                <action android:name="finance.intent.action.settings" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".test.SingTop2Activity"
+            android:name=".settings.SingTop2Activity"
             android:launchMode="singleInstance"
             android:label="top2"
             android:theme="@style/AppTheme">
