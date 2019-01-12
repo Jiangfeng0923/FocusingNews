@@ -1,5 +1,6 @@
 package com.fun.finance.myapplication;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -11,6 +12,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -62,11 +64,23 @@ public class FinanceActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                startActivity(new Intent("android.intent.action.singtop"));
             }
         });
 
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d("JIANG","fun onDestroy");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d("JIANG","fun onStop");
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

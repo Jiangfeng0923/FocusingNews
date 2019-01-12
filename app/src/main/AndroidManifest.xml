@@ -11,12 +11,35 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".FinanceActivity"
+            android:launchMode="singleInstance"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".test.SingTopActivity"
+            android:launchMode="singleInstance"
+            android:label="top1"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.singtop" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".test.SingTop2Activity"
+            android:launchMode="singleInstance"
+            android:label="top2"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.singtop2" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
     </application>
