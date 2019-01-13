@@ -3,6 +3,7 @@ package com.fun.finance.myapplication;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.design.widget.TabItem;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -23,6 +24,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.webkit.WebResourceRequest;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -61,7 +63,20 @@ public class FinanceActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mSectionsPagerAdapter.currentFragment != null) {
+                    mSectionsPagerAdapter.currentFragment.loadWeb();
+                }
+            }
+        });
 
+        refresh();
+    }
+
+    private void refresh() {
         SharedPreferences sp = getSharedPreferences("markets", Context.MODE_PRIVATE);
         mConcernedMarket = sp.getAll();
 
@@ -74,31 +89,19 @@ public class FinanceActivity extends AppCompatActivity {
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.removeAllTabs();
+        Iterator iterator = mConcernedMarket.entrySet().iterator();
+        while (iterator.hasNext()) {
+            Map.Entry entry = (Map.Entry) iterator.next();
+            String key = (String) entry.getKey();
+
+            TabLayout.Tab tab = tabLayout.newTab();
+            tab.setText(key);
+            tabLayout.addTab(tab);
+        }
 
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (mSectionsPagerAdapter.currentFragment != null) {
-                    mSectionsPagerAdapter.currentFragment.loadWeb();
-                }
-            }
-        });
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.d("JIANG", "fun onDestroy");
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Log.d("JIANG", "fun onStop");
     }
 
     @Override
@@ -119,6 +122,10 @@ public class FinanceActivity extends AppCompatActivity {
         if (id == R.id.action_settings) {
             startActivity(new Intent(SETTINGS_ACTION));
             return true;
+        } else if (id == R.id.action_add_delete) {
+            startActivity(new Intent("finance.intent.action.add_item"));
+        } else if (id == R.id.action_refresh) {
+            refresh();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -127,6 +134,9 @@ public class FinanceActivity extends AppCompatActivity {
      * A placeholder fragment containing a simple view.
      */
     public static class PlaceholderFragment extends Fragment {
+        //private static final String realTime="https://m.baidu.com/sf/vsearch?pd=realtime&word=";
+        private static final String realTime = "https://m.sogou.com/news/newsSearchResult.jsp?keyword=";
+
         WebView mWebView;
         /**
          * The fragment argument representing the section number for this
@@ -156,6 +166,7 @@ public class FinanceActivity extends AppCompatActivity {
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_finance, container, false);
             mWebView = (WebView) rootView.findViewById(R.id.webview);
+            setWebView();
             loadWeb();
             return rootView;
         }
@@ -169,6 +180,42 @@ public class FinanceActivity extends AppCompatActivity {
             return mWebView;
         }
 
+        private void setWebView() {
+            mWebView.setWebViewClient(new WebViewClient() {
+                @Override
+                public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+                    if (request.isRedirect()) {
+                        view.loadUrl(request.getUrl().toString());
+                        return true;
+                    }
+                    return false;
+                }
+            });
+
+            WebSettings webSettings = mWebView.getSettings();
+            // 让WebView能够执行javaScript
+            webSettings.setJavaScriptEnabled(true);
+            // 让JavaScript可以自动打开windows
+            webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
+            // 设置缓存
+            webSettings.setAppCacheEnabled(true);
+            // 设置缓存模式,一共有四种模式
+            webSettings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
+            // 设置缓存路径
+//        webSettings.setAppCachePath("");
+            // 支持缩放(适配到当前屏幕)
+            webSettings.setSupportZoom(true);
+            // 将图片调整到合适的大小
+            webSettings.setUseWideViewPort(true);
+            // 支持内容重新布局,一共有四种方式
+            // 默认的是NARROW_COLUMNS
+            webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
+            // 设置可以被显示的屏幕控制
+            webSettings.setDisplayZoomControls(true);
+            // 设置默认字体大小
+            webSettings.setDefaultFontSize(12);
+        }
+
         public void loadWeb() {
             SharedPreferences sp = getContext().getSharedPreferences("markets", Context.MODE_PRIVATE);
             Map<String, ?> markets = sp.getAll();
@@ -179,24 +226,15 @@ public class FinanceActivity extends AppCompatActivity {
                 Map.Entry entry = (Map.Entry) iter.next();
                 String key = (String) entry.getKey();
                 String val = (String) entry.getValue();
-                mMarketsList.add(val);
+                mMarketsList.add(key);
             }
 
             int position = getArguments().getInt(ARG_SECTION_NUMBER);
             if (mMarketsList != null && mMarketsList.size() > 0) {
-                StringBuilder sb = new StringBuilder("https://www.baidu.com/s?wd=");
+                StringBuilder sb = new StringBuilder(realTime);
                 sb.append(mMarketsList.get(position));
                 mWebView.loadUrl(sb.toString());
-                mWebView.setWebViewClient(new WebViewClient() {
-                    @Override
-                    public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-                        if (request.isRedirect()) {
-                            view.loadUrl(request.getUrl().toString());
-                            return true;
-                        }
-                        return false;
-                    }
-                });
+
             }
         }
     }
@@ -228,7 +266,6 @@ public class FinanceActivity extends AppCompatActivity {
 
         @Override
         public void setPrimaryItem(ViewGroup container, int position, Object object) {
-            Log.d("JIANG", "setPrimaryItem position:" + position + " object:" + object);
             currentFragment = (PlaceholderFragment) object;
             super.setPrimaryItem(container, position, object);
         }

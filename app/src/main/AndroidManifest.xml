@@ -12,7 +12,6 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".FinanceActivity"
-            android:launchMode="singleInstance"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -22,9 +21,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".settings.SettingsActivity"
-            android:launchMode="singleInstance"
-            android:label="top1"
+            android:name=".settings.EditItemsActivity"
+            android:label="@string/action_edit"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="finance.intent.action.settings" />
@@ -33,12 +31,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".settings.SingTop2Activity"
-            android:launchMode="singleInstance"
-            android:label="top2"
+            android:name=".settings.AddDeleteItemActivity"
+            android:label="@string/action_add_delete"
             android:theme="@style/AppTheme">
             <intent-filter>
-                <action android:name="android.intent.action.singtop2" />
+                <action android:name="finance.intent.action.add_item" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
