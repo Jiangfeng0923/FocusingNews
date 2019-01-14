@@ -3,6 +3,7 @@
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
     <string name="tab_text_3">Tab 3</string>
+    <string name="search_engines_settings">Search Engines Settings</string>
     <string name="action_edit">Edit Item</string>
     <string name="action_add_delete">Add Delete Item</string>
     <string name="action_refresh">Refresh</string>

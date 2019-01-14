@@ -34,6 +34,9 @@ import java.util.List;
 import java.util.Map;
 
 import static android.view.KeyEvent.KEYCODE_BACK;
+import static com.fun.finance.myapplication.settings.Constant.BAIDU;
+import static com.fun.finance.myapplication.settings.Constant.KEY_ENGINE;
+import static com.fun.finance.myapplication.settings.Constant.SOGOU;
 
 public class FinanceActivity extends AppCompatActivity {
 
@@ -53,7 +56,7 @@ public class FinanceActivity extends AppCompatActivity {
     private ViewPager mViewPager;
 
     private Map<String, ?> mConcernedMarket;
-    private String SETTINGS_ACTION = "finance.intent.action.settings";
+    private String SETTINGS_ACTION = "finance.intent.action.edit";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,13 +122,15 @@ public class FinanceActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_edit) {
             startActivity(new Intent(SETTINGS_ACTION));
             return true;
         } else if (id == R.id.action_add_delete) {
-            startActivity(new Intent("finance.intent.action.add_item"));
+            startActivity(new Intent("finance.intent.action.add_delete"));
         } else if (id == R.id.action_refresh) {
             refresh();
+        } else if (id == R.id.search_engines_settings) {
+            startActivity(new Intent("finance.intent.action.search_settings"));
         }
         return super.onOptionsItemSelected(item);
     }
@@ -134,8 +139,9 @@ public class FinanceActivity extends AppCompatActivity {
      * A placeholder fragment containing a simple view.
      */
     public static class PlaceholderFragment extends Fragment {
-        //private static final String realTime="https://m.baidu.com/sf/vsearch?pd=realtime&word=";
-        private static final String realTime = "https://m.sogou.com/news/newsSearchResult.jsp?keyword=";
+        //private static final String BAIDU_NEWS="https://m.baidu.com/sf/vsearch?pd=realtime&word=";
+        private static final String BAIDU_NEWS = "https://m.news.so.com/ns?q=";
+        private static final String SOGOU_NEWS = "https://m.sogou.com/news/newsSearchResult.jsp?&sort=1&keyword=";
 
         WebView mWebView;
         /**
@@ -231,6 +237,13 @@ public class FinanceActivity extends AppCompatActivity {
 
             int position = getArguments().getInt(ARG_SECTION_NUMBER);
             if (mMarketsList != null && mMarketsList.size() > 0) {
+                SharedPreferences spSearch = getContext().getSharedPreferences("search_engines", Context.MODE_PRIVATE);
+                String realTime = SOGOU_NEWS;
+                if (spSearch.getString(KEY_ENGINE, SOGOU).equals(SOGOU)) {
+                    realTime = SOGOU_NEWS;
+                } else if (spSearch.getString(KEY_ENGINE, SOGOU).equals(BAIDU)) {
+                    realTime = BAIDU_NEWS;
+                }
                 StringBuilder sb = new StringBuilder(realTime);
                 sb.append(mMarketsList.get(position));
                 mWebView.loadUrl(sb.toString());

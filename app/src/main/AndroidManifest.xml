@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.fun.finance.myapplication">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -25,7 +26,7 @@
             android:label="@string/action_edit"
             android:theme="@style/AppTheme">
             <intent-filter>
-                <action android:name="finance.intent.action.settings" />
+                <action android:name="finance.intent.action.edit" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -35,7 +36,14 @@
             android:label="@string/action_add_delete"
             android:theme="@style/AppTheme">
             <intent-filter>
-                <action android:name="finance.intent.action.add_item" />
+                <action android:name="finance.intent.action.add_delete" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".settings.SearchEnginesSettingsActivity">
+            <intent-filter>
+                <action android:name="finance.intent.action.search_settings" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
