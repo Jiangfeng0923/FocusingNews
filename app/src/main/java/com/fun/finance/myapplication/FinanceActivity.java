@@ -3,10 +3,8 @@ package com.fun.finance.myapplication;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.design.widget.TabItem;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -15,7 +13,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -30,13 +27,16 @@ import android.webkit.WebViewClient;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 
 import static android.view.KeyEvent.KEYCODE_BACK;
-import static com.fun.finance.myapplication.settings.Constant.BAIDU;
+import static com.fun.finance.myapplication.settings.Constant.SINA;
+import static com.fun.finance.myapplication.settings.Constant.SINA_NEWS;
+import static com.fun.finance.myapplication.settings.Constant.SOGOU_NEWS;
+import static com.fun.finance.myapplication.settings.Constant._360;
 import static com.fun.finance.myapplication.settings.Constant.KEY_ENGINE;
 import static com.fun.finance.myapplication.settings.Constant.SOGOU;
+import static com.fun.finance.myapplication.settings.Constant._360_NEWS;
 
 public class FinanceActivity extends AppCompatActivity {
 
@@ -139,9 +139,6 @@ public class FinanceActivity extends AppCompatActivity {
      * A placeholder fragment containing a simple view.
      */
     public static class PlaceholderFragment extends Fragment {
-        //private static final String BAIDU_NEWS="https://m.baidu.com/sf/vsearch?pd=realtime&word=";
-        private static final String BAIDU_NEWS = "https://m.news.so.com/ns?q=";
-        private static final String SOGOU_NEWS = "https://m.sogou.com/news/newsSearchResult.jsp?&sort=1&keyword=";
 
         WebView mWebView;
         /**
@@ -241,8 +238,10 @@ public class FinanceActivity extends AppCompatActivity {
                 String realTime = SOGOU_NEWS;
                 if (spSearch.getString(KEY_ENGINE, SOGOU).equals(SOGOU)) {
                     realTime = SOGOU_NEWS;
-                } else if (spSearch.getString(KEY_ENGINE, SOGOU).equals(BAIDU)) {
-                    realTime = BAIDU_NEWS;
+                } else if (spSearch.getString(KEY_ENGINE, SOGOU).equals(_360)) {
+                    realTime = _360_NEWS;
+                } else if (spSearch.getString(KEY_ENGINE, SOGOU).equals(SINA)) {
+                    realTime = SINA_NEWS;
                 }
                 StringBuilder sb = new StringBuilder(realTime);
                 sb.append(mMarketsList.get(position));
