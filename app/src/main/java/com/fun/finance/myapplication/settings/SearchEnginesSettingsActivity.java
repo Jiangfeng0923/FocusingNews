@@ -10,7 +10,7 @@ import android.widget.RadioGroup;
 
 import com.fun.finance.myapplication.R;
 
-import static com.fun.finance.myapplication.settings.Constant.SINA;
+import static com.fun.finance.myapplication.settings.Constant.BAIDU;
 import static com.fun.finance.myapplication.settings.Constant._360;
 import static com.fun.finance.myapplication.settings.Constant.KEY_ENGINE;
 import static com.fun.finance.myapplication.settings.Constant.SOGOU;
@@ -18,7 +18,7 @@ import static com.fun.finance.myapplication.settings.Constant.SOGOU;
 public class SearchEnginesSettingsActivity extends AppCompatActivity {
     int sogou_id = R.id.sogou_btn;
     int _360_id = R.id._360_btn;
-    int sina_id = R.id.sina_btn;
+    int baidu_btn = R.id.baidu_btn;
 
 
     @Override
@@ -28,7 +28,7 @@ public class SearchEnginesSettingsActivity extends AppCompatActivity {
         RadioGroup group = findViewById(R.id.search_engines);
         RadioButton sogou = findViewById(sogou_id);
         RadioButton btn_360 = findViewById(_360_id);
-        RadioButton btn_sina = findViewById(sina_id);
+        RadioButton btn_baidu = findViewById(baidu_btn);
 
         SharedPreferences sp = getSharedPreferences("search_engines", Context.MODE_PRIVATE);
         String engine = sp.getString(KEY_ENGINE, SOGOU);
@@ -36,8 +36,8 @@ public class SearchEnginesSettingsActivity extends AppCompatActivity {
             btn_360.setChecked(true);
         } else if (TextUtils.equals(engine, SOGOU)) {
             sogou.setChecked(true);
-        } else if (TextUtils.equals(engine, SINA)) {
-            btn_sina.setChecked(true);
+        } else if (TextUtils.equals(engine, BAIDU)) {
+            btn_baidu.setChecked(true);
         }
 
         final SharedPreferences.Editor editor = sp.edit();
@@ -48,8 +48,8 @@ public class SearchEnginesSettingsActivity extends AppCompatActivity {
                     editor.putString(KEY_ENGINE, SOGOU);
                 } else if (checkedId == _360_id) {
                     editor.putString(KEY_ENGINE, _360);
-                } else if (checkedId == sina_id) {
-                    editor.putString(KEY_ENGINE, SINA);
+                } else if (checkedId == baidu_btn) {
+                    editor.putString(KEY_ENGINE, BAIDU);
                 }
                 editor.commit();
             }

@@ -22,8 +22,8 @@
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"/>
         <RadioButton
-            android:id="@+id/sina_btn"
-            android:text="sina"
+            android:id="@+id/baidu_btn"
+            android:text="baidu"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"/>
 

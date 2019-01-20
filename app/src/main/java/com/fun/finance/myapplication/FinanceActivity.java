@@ -13,6 +13,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -20,18 +21,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import android.webkit.WebResourceRequest;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
+
+import com.tencent.smtt.sdk.WebSettings;
+import com.tencent.smtt.sdk.WebView;
+import com.tencent.smtt.sdk.WebViewClient;
+import com.tencent.smtt.export.external.interfaces.WebResourceRequest;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
 
 import static android.view.KeyEvent.KEYCODE_BACK;
-import static com.fun.finance.myapplication.settings.Constant.SINA;
-import static com.fun.finance.myapplication.settings.Constant.SINA_NEWS;
+import static com.fun.finance.myapplication.settings.Constant.BAIDU;
+import static com.fun.finance.myapplication.settings.Constant.BAIDU_NEWS;
 import static com.fun.finance.myapplication.settings.Constant.SOGOU_NEWS;
 import static com.fun.finance.myapplication.settings.Constant._360;
 import static com.fun.finance.myapplication.settings.Constant.KEY_ENGINE;
@@ -169,6 +171,7 @@ public class FinanceActivity extends AppCompatActivity {
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_finance, container, false);
             mWebView = (WebView) rootView.findViewById(R.id.webview);
+            Log.d("JIANG","getX5WebViewExtension:"+mWebView.getX5WebViewExtension());
             setWebView();
             loadWeb();
             return rootView;
@@ -240,8 +243,8 @@ public class FinanceActivity extends AppCompatActivity {
                     realTime = SOGOU_NEWS;
                 } else if (spSearch.getString(KEY_ENGINE, SOGOU).equals(_360)) {
                     realTime = _360_NEWS;
-                } else if (spSearch.getString(KEY_ENGINE, SOGOU).equals(SINA)) {
-                    realTime = SINA_NEWS;
+                } else if (spSearch.getString(KEY_ENGINE, SOGOU).equals(BAIDU)) {
+                    realTime = BAIDU_NEWS;
                 }
                 StringBuilder sb = new StringBuilder(realTime);
                 sb.append(mMarketsList.get(position));
