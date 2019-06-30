@@ -22,6 +22,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
+import com.tencent.smtt.sdk.CookieManager;
+import com.tencent.smtt.sdk.CookieSyncManager;
 import com.tencent.smtt.sdk.WebSettings;
 import com.tencent.smtt.sdk.WebView;
 import com.tencent.smtt.sdk.WebViewClient;
@@ -72,9 +74,7 @@ public class FinanceActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mSectionsPagerAdapter.currentFragment != null) {
-                    mSectionsPagerAdapter.currentFragment.loadWeb();
-                }
+                refresh();
             }
         });
 
@@ -206,7 +206,7 @@ public class FinanceActivity extends AppCompatActivity {
             // 设置缓存
             webSettings.setAppCacheEnabled(true);
             // 设置缓存模式,一共有四种模式
-            webSettings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
+            webSettings.setCacheMode(WebSettings.LOAD_DEFAULT);
             // 设置缓存路径
 //        webSettings.setAppCachePath("");
             // 支持缩放(适配到当前屏幕)
@@ -252,6 +252,7 @@ public class FinanceActivity extends AppCompatActivity {
 
             }
         }
+
     }
 
     /**
@@ -298,4 +299,11 @@ public class FinanceActivity extends AppCompatActivity {
 
         return super.onKeyDown(keyCode, event);
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+
 }
