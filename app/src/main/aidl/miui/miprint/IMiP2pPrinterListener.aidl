@@ -1,5 +1,5 @@
 // IP2pListener.aidl
-package com.fun.finance.myapplication;
+package miui.miprint;
 
 import miui.miprint.P2pPrinterInfo;
 

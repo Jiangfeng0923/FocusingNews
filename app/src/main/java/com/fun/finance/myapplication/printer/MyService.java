@@ -8,8 +8,8 @@ import android.os.RemoteCallbackList;
 import android.os.RemoteException;
 import android.util.Log;
 
-import com.fun.finance.myapplication.IMiP2pPrinterListener;
-import com.fun.finance.myapplication.IMiP2pPrinterManager;
+import miui.miprint.IMiP2pPrinterListener;
+import miui.miprint.IMiP2pPrinterManager;
 
 import miui.miprint.P2pPrinterInfo;
 

@@ -11,8 +11,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-import com.fun.finance.myapplication.IMiP2pPrinterListener;
-import com.fun.finance.myapplication.IMiP2pPrinterManager;
+import miui.miprint.IMiP2pPrinterListener;
+import miui.miprint.IMiP2pPrinterManager;
 import com.fun.finance.myapplication.R;
 
 import miui.miprint.P2pPrinterInfo;
