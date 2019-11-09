@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <!--
+/*
+ * Copyright (C) 2013, Xiaomi Inc. All rights reserved.
+ */
+-->
+    <set xmlns:android="http://schemas.android.com/apk/res/android"
+         android:interpolator="@anim/decelerate_quart">
+        <translate android:fromYDelta="100%p" android:toYDelta="0"
+                   android:duration="@integer/dialog_enter_duration"/>
+        <alpha android:fromAlpha="0.0" android:toAlpha="1.0"
+               android:duration="@integer/dialog_enter_duration" />
+    </set>

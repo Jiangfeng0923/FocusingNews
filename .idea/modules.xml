@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/FunFinance.iml" filepath="$PROJECT_DIR$/FunFinance.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dialogactivity/dialogactivity.iml" filepath="$PROJECT_DIR$/dialogactivity/dialogactivity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/miuix/miuix.iml" filepath="$PROJECT_DIR$/miuix/miuix.iml" />
     </modules>
   </component>
 </project>
