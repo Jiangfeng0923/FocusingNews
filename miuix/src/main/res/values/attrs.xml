@@ -1,0 +1,1087 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+ * Copyright (C) 2013, Xiaomi Inc. All rights reserved.
+ */
+-->
+<resources>
+    <!-- Attribute used to denote the miui version -->
+    <attr name="miui_version" format="integer" />
+
+    <!-- Additional drawable states for position of view
+         The mapping of Drawable states to a particular drawables is specified
+         in the "state" elements of a Widget's "selector" element.
+         Possible values:
+         <ul>
+         <li>"state_first_h"
+         <li>"state_middle_h"
+         <li>"state_last_h"
+         <li>"state_checked"
+         <li>"state_single_h"
+         <li>"state_first_v"
+         <li>"state_middle_v"
+         <li>"state_last_v"
+         <li>"state_single_v"
+         </ul> -->
+    <declare-styleable name="DrawableStates">
+        <!-- State value for {@link android.graphics.drawable.StateListDrawable StateListDrawable},
+             set when a view is first in horizontal -->
+        <attr name="state_first_h" format="boolean" />
+        <!-- State value for {@link android.graphics.drawable.StateListDrawable StateListDrawable},
+             set when a view is middle in horizontal -->
+        <attr name="state_middle_h" format="boolean" />
+        <!-- State value for {@link android.graphics.drawable.StateListDrawable StateListDrawable},
+             set when a view is last in horizontal -->
+        <attr name="state_last_h" format="boolean" />
+        <!-- State value for {@link android.graphics.drawable.StateListDrawable StateListDrawable},
+             set when a view is single in horizontal -->
+        <attr name="state_single_h" format="boolean" />
+        <!-- State value for {@link android.graphics.drawable.StateListDrawable StateListDrawable},
+             set when a view is first in vertical -->
+        <attr name="state_first_v" format="boolean" />
+        <!-- State value for {@link android.graphics.drawable.StateListDrawable StateListDrawable},
+             set when a view is middle in vertical -->
+        <attr name="state_middle_v" format="boolean" />
+        <!-- State value for {@link android.graphics.drawable.StateListDrawable StateListDrawable},
+             set when a view is last in vertical -->
+        <attr name="state_last_v" format="boolean" />
+        <!-- State value for {@link android.graphics.drawable.StateListDrawable StateListDrawable},
+             set when a view is single in vertical -->
+        <attr name="state_single_v" format="boolean" />
+    </declare-styleable>
+
+    <!-- Attribute of {@link android.view.ViewGroup} to enable {@link miui.R.styleable.DrawableStates}
+         states to self-adaptation for thier positions -->
+    <attr name="children_sequence_state" format="boolean" />
+
+    <!-- The most prominent text color. -->
+    <attr name="textColorNormal" format="reference|color" />
+    <!-- The inverse of most prominent text color. -->
+    <attr name="textColorNormalInverse" format="reference|color" />
+    <!-- The most prominent text color with disable only. -->
+    <attr name="textColorNormalDisableOnly" format="reference|color" />
+    <!-- The inverse of most prominent text color with disable only. -->
+    <attr name="textColorNormalInverseDisableOnly" format="reference|color" />
+    <!-- The most prominent text color without disable. -->
+    <attr name="textColorNormalNoDisable" format="reference|color" />
+    <!-- The inverse of most prominent text color without disable. -->
+    <attr name="textColorNormalInverseNoDisable" format="reference|color" />
+    <!-- The secondary tab text color -->
+    <attr name="textColorSecondaryTab" format="reference|color" />
+    <!-- The blank page text color -->
+    <attr name="textColorBlankPage" format="reference|color" />
+
+    <!-- These attributes are meant to be specified and customized by the app.
+         The system will read and apply them as needed. These attributes control
+         properties of the activity window, such as whether an action bar should
+         be present and whether it should overlay content. -->
+    <declare-styleable name="Window">
+        <!-- Flag indicating whether this window should have an Action Bar in place of the usual title bar -->
+        <attr name="windowActionBar" format="boolean"/>
+        <!-- Flag indicating whether action modes should overlay window content when there is not
+             reserved space for their UI (such as Action Bar). -->
+        <attr name="windowActionBarOverlay" format="boolean"/>
+        <!-- Flag indicating that the action bar should be split to provide more room for elements. -->
+        <attr name="windowSplitActionBar" format="boolean" />
+        <!-- Flag indicating whether action bar is movable. -->
+        <attr name="windowActionBarMovable" format="boolean" />
+
+        <!-- Flag allowing you to disable miui custom preview animation for a window. -->
+        <attr name="windowDisablePreview" format="boolean" />
+        <!-- Layout used for starting window. -->
+        <attr name="startingWindowOverlay" format="reference" />
+
+
+        <!-- A fixed width for the window along the major axis of the screen,
+             that is, when in landscape. Can be either an absolute dimension
+             or a fraction of the screen size in that dimension. -->
+        <attr name="windowFixedWidthMajor" format="dimension|fraction" />
+        <!-- A fixed height for the window along the minor axis of the screen,
+             that is, when in landscape. Can be either an absolute dimension
+             or a fraction of the screen size in that dimension. -->
+        <attr name="windowFixedHeightMinor" format="dimension|fraction" />
+
+        <!-- A fixed width for the window along the minor axis of the screen,
+             that is, when in portrait. Can be either an absolute dimension
+             or a fraction of the screen size in that dimension. -->
+        <attr name="windowFixedWidthMinor" format="dimension|fraction" />
+        <!-- A fixed height for the window along the major axis of the screen,
+             that is, when in portrait. Can be either an absolute dimension
+             or a fraction of the screen size in that dimension. -->
+        <attr name="windowFixedHeightMajor" format="dimension|fraction" />
+
+        <!-- A max width for the window along the minor axis of the screen,
+             that is, when in portrait. Can be either an absolute dimension
+             or a fraction of the screen size in that dimension. -->
+        <attr name="windowMaxWidthMinor" format="dimension|fraction" />
+        <!-- A max width for the window along the major axis of the screen,
+             that is, when in portrait. Can be either an absolute dimension
+             or a fraction of the screen size in that dimension. -->
+        <attr name="windowMaxWidthMajor" format="dimension|fraction" />
+
+        <!-- A max height for the window along the minor axis of the screen,
+             that is, when in portrait. Can be either an absolute dimension
+             or a fraction of the screen size in that dimension. -->
+        <attr name="windowMaxHeightMinor" format="dimension|fraction" />
+        <!-- A max height for the window along the major axis of the screen,
+             that is, when in portrait. Can be either an absolute dimension
+             or a fraction of the screen size in that dimension. -->
+        <attr name="windowMaxHeightMajor" format="dimension|fraction" />
+
+        <!-- Flag indicating whether this window requests a translucent status bar. -->
+        <attr name="windowTranslucentStatus">
+            <!-- do not translucent status bar -->
+            <enum name="opaque" value="0" />
+            <!-- translucent light status bar -->
+            <enum name="transparentLight" value="1" />
+            <!-- translucent dark status bar -->
+            <enum name="transparentDark" value="2" />
+        </attr>
+
+        <!-- Flag indicating the mode of this window. -->
+        <attr name="windowLayoutMode">
+            <!-- normal window -->
+            <enum name="normal" value="0" />
+            <!-- dialog window -->
+            <enum name="bottom" value="1" />
+        </attr>
+
+        <!-- Content Auto fit system window-->
+        <attr name="contentAutoFitSystemWindow" format="boolean" />
+        <attr name="contentHeaderBackground" format="reference|color" />
+
+        <!-- Flag indicating whether should show menu as immersion menu. -->
+        <attr name="immersionMenuEnabled" format="boolean" />
+        <attr name="immersionMenuLayout" format="reference" />
+        <attr name="immersionButtonMoreBackground" format="reference" />
+        <attr name="immersionButtonCloseBackground" format="reference" />
+        <attr name="immersionWindowBackground" format="reference|color" />
+        <attr name="immersionWindowFooterBackground" format="reference" />
+        <attr name="immersionViewItemBackground" format="reference" />
+        <attr name="immersionTextColor" format="reference|color" />
+        <!-- Default mask for blurring immersion screen -->
+        <attr name="immersionBlurMask" format="reference|color" />
+
+        <!-- Flag indicating whether this immersion menu requests a translucent status bar. -->
+        <attr name="immersionStatusBarStyle">
+            <!-- do not translucent status bar -->
+            <enum name="opaque" value="0" />
+            <!-- translucent light status bar -->
+            <enum name="transparentLight" value="1" />
+            <!-- translucent dark status bar -->
+            <enum name="transparentDark" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <!-- ============================================ -->
+
+    <!-- Action bar appearance and styling attributes.
+         These attributes are meant to be specified and customized by the
+         app. The system will read and apply them as needed. -->
+    <eat-comment/>
+
+    <!-- Action bar edit icon. -->
+    <attr name="actionBarEditIcon" format="reference"/>
+    <!-- Action bar copy icon. -->
+    <attr name="actionBarCopyIcon" format="reference"/>
+    <!-- Action bar cut icon. -->
+    <attr name="actionBarCutIcon" format="reference"/>
+    <!-- Action bar delete icon. -->
+    <attr name="actionBarDeleteIcon" format="reference"/>
+    <!-- Action bar discard icon. -->
+    <attr name="actionBarDiscardIcon" format="reference"/>
+    <!-- Action bar favorite icon. -->
+    <attr name="actionBarFavoriteIcon" format="reference"/>
+    <!-- Action bar unfavorite icon. -->
+    <attr name="actionBarUnfavoriteIcon" format="reference"/>
+    <!-- Action bar move icon. -->
+    <attr name="actionBarMoveIcon" format="reference"/>
+    <!-- Action bar new icon. -->
+    <attr name="actionBarNewIcon" format="reference"/>
+    <!-- Action bar pause icon. -->
+    <attr name="actionBarPauseIcon" format="reference"/>
+    <!-- Action bar refresh icon. -->
+    <attr name="actionBarRefreshIcon" format="reference"/>
+    <!-- Action bar rename icon. -->
+    <attr name="actionBarRenameIcon" format="reference"/>
+    <!-- Action bar save icon. -->
+    <attr name="actionBarSaveIcon" format="reference"/>
+    <!-- Action bar search icon. -->
+    <attr name="actionBarSearchIcon" format="reference"/>
+    <!-- Action bar send icon. -->
+    <attr name="actionBarSendIcon" format="reference"/>
+    <!-- Action bar setting icon. -->
+    <attr name="actionBarSettingIcon" format="reference"/>
+    <!-- Action bar share icon. -->
+    <attr name="actionBarShareIcon" format="reference"/>
+    <!-- Action bar start icon. -->
+    <attr name="actionBarStartIcon" format="reference"/>
+    <!-- Action bar paste icon. -->
+    <attr name="actionBarPasteIcon" format="reference"/>
+    <!-- Action bar stick icon. -->
+    <attr name="actionBarStickIcon" format="reference"/>
+    <!-- Action bar un-stick icon. -->
+    <attr name="actionBarUnStickIcon" format="reference"/>
+    <!-- Action bar update icon. -->
+    <attr name="actionBarUpdateIcon" format="reference"/>
+    <!-- Action bar backlist icon -->
+    <attr name="actionBarBlacklistIcon" format="reference"/>
+    <!-- Action bar remove backlist icon -->
+    <attr name="actionBarRemoveBlacklistIcon" format="reference"/>
+    <!-- Action bar edit message icon -->
+    <attr name="actionBarEditMessageIcon" format="reference"/>
+    <!-- Action bar add secret icon. -->
+    <attr name="actionBarAddSecretIcon" format="reference"/>
+    <!-- Action bar remove secret icon. -->
+    <attr name="actionBarRemoveSecretIcon" format="reference"/>
+    <!-- Flag indicating whether action bar has embed tabs. -->
+    <attr name="actionBarEmbedTabs" format="boolean"/>
+    <!-- Action bar split top line -->
+    <attr name="actionBarSplitTopLine" format="reference"/>
+    <!-- Flag indicating whether action bar uses tight title. -->
+    <attr name="actionBarTightTitle" format="boolean"/>
+
+    <!-- ============================================ -->
+    <eat-comment/>
+
+    <!-- Attributes used to style the Action Bar.
+         These should be set on your theme; the default actionBarStyle will
+         propagate them to the correct elements as needed.
+
+         Please Note: when overriding attributes for an ActionBar style
+         you must specify each attribute twice: once with the "android:"
+         namespace prefix and once without. -->
+    <declare-styleable name="ActionBar">
+        <!-- The type of navigation to use. -->
+        <attr name="android:navigationMode"/>
+        <!-- Options affecting how the action bar is displayed. -->
+        <attr name="android:displayOptions"/>
+        <!-- Specifies title text used for navigationMode="normal" -->
+        <attr name="android:title"/>
+        <!-- Specifies subtitle text used for navigationMode="normal" -->
+        <attr name="android:subtitle"/>
+        <!-- Specifies a style to use for title text. -->
+        <attr name="android:titleTextStyle"/>
+        <!-- Specifies a style to use for subtitle text. -->
+        <attr name="android:subtitleTextStyle"/>
+        <!-- Specifies the drawable used for the application icon. -->
+        <attr name="android:icon"/>
+        <!-- Specifies the drawable used for the application logo. -->
+        <attr name="android:logo"/>
+        <!-- Specifies the drawable used for item dividers. -->
+        <attr name="android:divider"/>
+        <!-- Specifies a background drawable for the action bar. -->
+        <attr name="android:background"/>
+        <!-- Specifies a background drawable for a second stacked row of the action bar. -->
+        <attr name="android:backgroundStacked"/>
+        <!-- Specifies a background drawable for the bottom component of a split action bar. -->
+        <attr name="android:backgroundSplit"/>
+        <!-- Specifies a layout for custom navigation. Overrides navigationMode. -->
+        <attr name="android:customNavigationLayout"/>
+        <!-- Specifies a fixed height. -->
+        <attr name="android:height"/>
+        <!-- Specifies a layout to use for the "home" section of the action bar. -->
+        <attr name="android:homeLayout"/>
+
+        <!-- Specifies the horizontal padding on either end for an embedded progress bar. -->
+        <attr name="android:progressBarPadding"/>
+        <!-- Specifies padding that should be applied to the left and right sides of
+             system-provided items in the bar. -->
+        <attr name="android:itemPadding"/>
+
+        <!-- Sets whether indicator cuts the background -->
+        <attr name="translucentTabIndicator" format="boolean" />
+        <!-- Image of tab indicator -->
+        <attr name="tabIndicator" format="reference" />
+        <!-- custom view auto fit system window-->
+        <attr name="customViewAutoFitSystemWindow" format="boolean" />
+        <!-- action bar title center -->
+        <attr name="titleCenter" format="boolean" />
+
+        <!-- Specifies a background drawable for the action bar with embeded tabs. -->
+        <attr name="actionBarEmbededTabsBackground" />
+        <!-- Specifies a background drawable for the action bar with embedie tabs, home icon and custom view. -->
+        <attr name="actionBarStackedBackground" />
+    </declare-styleable>
+
+    <!-- Specifies a style resource to use for an embedded progress bar in action bar. -->
+    <attr name="actionBarProgressStyle" format="reference"/>
+    <!-- Specifies a style resource to use for an indeterminate progress spinner in action bar. -->
+    <attr name="actionBarIndeterminateProgressStyle" format="reference"/>
+
+    <!-- color to use for action bar title text -->
+    <attr name="actionBarTitleColor" format="reference|color"/>
+    <!-- color to use for action bar subtitle text -->
+    <attr name="actionBarSubtitleColor" format="reference|color"/>
+
+    <declare-styleable name="ActionMenu">
+        <!-- Specifies a background drawable to use for the expand menu view. -->
+        <attr name="expandBackground" />
+    </declare-styleable>
+    <!-- Drawable to use for the expand menu view. -->
+    <attr name="expandBackground" format="reference" />
+    <!-- Specifies split action bar overlay height. -->
+    <attr name="splitActionBarOverlayHeight" format="dimension|reference" />
+
+    <declare-styleable name="ActionMode">
+        <!-- Specifies a style to use for title text. -->
+        <attr name="android:titleTextStyle"/>
+        <!-- Specifies a style to use for subtitle text. -->
+        <attr name="android:subtitleTextStyle"/>
+        <!-- Specifies a background for the action mode bar. -->
+        <attr name="android:background"/>
+        <!-- Specifies a background for the split action mode bar. -->
+        <attr name="android:backgroundSplit"/>
+        <!-- Specifies a fixed height for the action mode bar. -->
+        <attr name="android:height"/>
+    </declare-styleable>
+    <!-- Specifies a style to use for action mode cancel button style. -->
+    <attr name="actionModeCancelButtonStyle" format="reference" />
+    <!-- Specifies a style to use for action mode select button style. -->
+    <attr name="actionModeSelectButtonStyle" format="reference" />
+    <!-- Specifies a style to use for action mode confirm button style. -->
+    <attr name="actionModeConfirmButtonStyle" format="reference" />
+
+    <!-- =================== -->
+    <!-- Action mode styles  -->
+    <!-- =================== -->
+    <eat-comment/>
+
+    <!-- Drawable to use for the action bar background -->
+    <attr name="actionBarBackground" format="reference" />
+    <!-- Drawable to use for the action bar background -->
+    <attr name="actionBarEmbededTabsBackground" format="reference" />
+    <!-- Drawable to use for the action bar background -->
+    <attr name="actionBarStackedBackground" format="reference" />
+    <!-- Drawable to use for the split action bar background -->
+    <attr name="actionBarSplitBackground" format="reference" />
+    <!-- Drawable to use for the split action bar background when expanded -->
+    <attr name="actionBarExpandBackground" format="reference" />
+    <!-- Drawable to use for the action bar stack background -->
+    <attr name="actionBarStackBackground" format="reference" />
+    <!-- Default action mode button style -->
+    <attr name="actionModeButtonStyle" format="reference"/>
+    <!-- List menu item style. -->
+    <attr name="listMenuItemStyle" format="reference" />
+    <!-- List menu background. -->
+    <attr name="listMenuBackground" format="reference" />
+
+    <!-- Dimen to use for perference screen paddingBottom -->
+    <attr name="preferenceScreenPaddingBottom" format="dimension" />
+    <!-- Drawable to use for preference background -->
+    <attr name="preferenceBackground" format="reference"/>
+    <!-- Drawable to use for preference background with icon -->
+    <attr name="preferenceWithIconBackground" format="reference"/>
+
+    <!-- color to use for action mode title text -->
+    <attr name="actionModeTitleColor" format="reference|color"/>
+
+    <!-- drawable to use for action mode back button -->
+    <attr name="actionModeBackButtonBackground" format="reference" />
+
+    <!-- used to set action mode overflow menu style -->
+    <attr name="actionModeOverflowButtonStyle" format="reference" />
+
+    <!-- ============ -->
+    <!-- Panel styles -->
+    <!-- ============ -->
+    <eat-comment />
+
+    <!-- Default Panel Menu style. -->
+    <attr name="panelMenuListTheme" format="reference" />
+
+    <!-- The item background for list popup window. -->
+    <attr name="listPopupItemBackground" format="reference"/>
+
+    <!-- Default arrow popup view style. -->
+    <attr name="arrowPopupViewStyle" format="reference"/>
+
+    <!-- Default guide popup view style. -->
+    <attr name="guidePopupViewStyle" format="reference"/>
+
+     <!-- The primary text color for preference. -->
+    <attr name="preferencePrimaryTextColor" format="reference|color" />
+
+     <!-- The secondary text color for preference. -->
+    <attr name="preferenceSecondaryTextColor" format="reference|color" />
+
+    <!-- The primary text color for list. -->
+    <attr name="textColorList" format="reference|color" />
+
+    <!-- The secondary text color for list. -->
+    <attr name="textColorListSecondary" format="reference|color" />
+
+    <!-- The secondary text shadow color for list. -->
+    <attr name="list_secondary_text_shadow" format="reference|color" />
+
+    <!-- The text color of single checkable button -->
+    <attr name="checkableButtonTextColor" format="reference|color" />
+
+    <!-- The text color of multiple checkable button -->
+    <attr name="checkableButtonTextColorStable" format="reference|color" />
+
+    <!-- Background of expander group -->
+    <attr name="expander_group_bg" format="reference" />
+
+    <!-- Background of list view item group header -->
+    <attr name="listViewGroupHeaderBackground" format="reference" />
+    <!-- Text color of list view item group header -->
+    <attr name="listViewGroupHeaderTextColor" format="reference|color" />
+
+     <!-- Specifies whether the theme hide arrow popup for AutoCompleteTextView. -->
+    <attr name="hidePopupArrow" format="boolean" />
+
+    <declare-styleable name="MenuView">
+        <!-- Default appearance of menu item text. -->
+        <attr name="android:itemTextAppearance"/>
+        <!-- Default horizontal divider between rows of menu items. -->
+        <attr name="android:horizontalDivider"/>
+        <!-- Default vertical divider between menu items. -->
+        <attr name="android:verticalDivider"/>
+        <!-- Default background for the menu header. -->
+        <attr name="android:headerBackground"/>
+        <!-- Default background for each menu item. -->
+        <attr name="android:itemBackground"/>
+        <!-- Default animations for the menu. -->
+        <attr name="android:windowAnimationStyle"/>
+        <!-- Default disabled icon alpha for each menu item that shows an icon. -->
+        <attr name="android:itemIconDisabledAlpha"/>
+        <!-- Whether space should be reserved in layout when an icon is missing. -->
+        <attr name="preserveIconSpacing" format="boolean"/>
+    </declare-styleable>
+
+    <!-- ArrowPopupView style. -->
+    <declare-styleable name="ArrowPopupView">
+        <!-- Default background of content view wrapper. -->
+        <attr name="contentBackground" format="reference" />
+        <!-- Default background of title. -->
+        <attr name="titleBackground" format="reference" />
+        <!-- Default top arrow. -->
+        <attr name="topArrow" format="reference" />
+        <!-- Default top arrow with title. -->
+        <attr name="topArrowWithTitle" format="reference" />
+        <!-- Default bottom arrow. -->
+        <attr name="bottomArrow" format="reference" />
+        <!-- Default left arrow. -->
+        <attr name="leftArrow" format="reference" />
+        <!-- Default right arrow. -->
+        <attr name="rightArrow" format="reference" />
+        <!-- Default left background of arrow popup view. -->
+        <attr name="backgroundLeft" format="reference" />
+        <!-- Default right background of arrow popup view. -->
+        <attr name="backgroundRight" format="reference" />
+    </declare-styleable>
+
+    <!-- GuidePopupView style -->
+    <declare-styleable name="GuidePopupView">
+        <!-- paint color for drawing. -->
+        <attr name="paintColor" format="reference|color" />
+        <!-- radius of start point circle. -->
+        <attr name="startPointRadius" format="reference|dimension" />
+        <!-- length of line between circles. -->
+        <attr name="lineLength" format="reference|dimension" />
+        <!-- radius of text circle. -->
+        <attr name="textCircleRadius" format="reference|dimension" />
+        <!-- background of guide popup window. -->
+        <attr name="android:colorBackground" />
+        <!-- text size of guide popup view. -->
+        <attr name="android:textSize" />
+        <!-- text color of guide popup view. -->
+        <attr name="android:textColor" />
+    </declare-styleable>
+
+    <!-- Base attributes available to VolumePreference. -->
+    <declare-styleable name="VolumePreference">
+        <!-- Different audio stream types. -->
+        <attr name="android:streamType" />
+    </declare-styleable>
+
+    <!-- =============================== -->
+    <!-- SlidingButton attributes        -->
+    <!-- =============================== -->
+    <declare-styleable name="SlidingButton">
+        <attr name="android:background"/>
+        <attr name="frame" format="reference"/>
+        <attr name="sliderOn" format="reference"/>
+        <attr name="sliderOff" format="reference"/>
+        <attr name="mask" format="reference"/>
+        <attr name="bar" format="reference"/>
+        <attr name="barOff" format="reference"/>
+        <attr name="barOn" format="reference"/>
+    </declare-styleable>
+
+    <!-- ProgressBar attributes -->
+    <declare-styleable name="ProgressBar">
+        <!-- For indeterminate progress bar. The frame count in a cycle -->
+        <attr name="indeterminateFramesCount" format="integer"/>
+        <!-- For indeterminate progress bar. The duration of per frame -->
+        <attr name="indeterminateFramesDuration" format="integer"/>
+        <!-- The bitmap to be composed with progress by DST_IN -->
+        <attr name="progressMask" format="reference"/>
+    </declare-styleable>
+
+    <!-- NumberPicker style. -->
+    <attr name="numberPickerStyle" format="reference" />
+
+    <!-- The DatePicker style. -->
+    <attr name="datePickerStyle" format="reference" />
+
+    <!-- The DateTimePicker style. -->
+    <attr name="dateTimePickerStyle" format="reference" />
+
+    <!-- SlidingButton style. -->
+    <attr name="slidingButtonStyle" format="reference" />
+
+    <declare-styleable name="NumberPicker">
+        <attr name="android:textColorHighlight"/>
+        <attr name="android:textColorHint"/>
+        <attr name="android:text"/>
+        <attr name="android:labelTextSize"/>
+        <attr name="labelTextColor" format="reference|color"/>
+        <attr name="textSizeHighlight" format="dimension"/>
+        <attr name="textSizeHint" format="dimension"/>
+        <attr name="labelPadding" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="DateTimePicker">
+        <!-- The calendar type, if true show lunar calendar, solar otherwise -->
+        <attr name="lunarCalendar" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="DatePicker">
+        <!-- The first year (inclusive), for example "1940".
+             {@deprecated Use minDate instead.}
+         -->
+        <attr name="startYear" format="integer" />
+        <!-- The last year (inclusive), for example "2010".
+             {@deprecated Use maxDate instead.}
+         -->
+        <attr name="endYear" format="integer" />
+        <!-- Whether the spinners are shown. -->
+        <attr name="spinnersShown" format="boolean" />
+        <!-- Whether the calendar view is shown. -->
+        <attr name="calendarViewShown" format="boolean" />
+        <!-- The minimal date shown by this calendar view in mm/dd/yyyy format. -->
+        <attr name="minDate" format="string" />
+        <!-- The minimal date shown by this calendar view in mm/dd/yyyy format. -->
+        <attr name="maxDate" format="string" />
+        <!-- The calendar type, if true show lunar calendar, solar otherwise -->
+        <attr name="lunarCalendar" />
+        <!-- If false it will hide the Year picker, default true -->
+        <attr name="showYear" format="boolean" />
+        <!-- If false it will hide the Month picker, default true -->
+        <attr name="showMonth" format="boolean" />
+        <!-- If false it will hide the Day picker, default true -->
+        <attr name="showDay" format="boolean" />
+    </declare-styleable>
+
+    <!-- The set of attributes that describe a AlertDialog's theme. !-->
+    <declare-styleable name="AlertDialog">
+        <attr name="layout" format="reference" />
+        <attr name="buttonPanelSideLayout" format="reference" />
+        <attr name="listLayout" format="reference" />
+        <attr name="multiChoiceItemLayout" format="reference" />
+        <attr name="singleChoiceItemLayout" format="reference" />
+        <attr name="listItemLayout" format="reference" />
+        <attr name="showTitle" format="boolean" />
+        <attr name="buttonIconDimen" format="dimension" />
+    </declare-styleable>
+
+    <!-- =================== -->
+    <!-- Button styles  -->
+    <!-- =================== -->
+    <eat-comment/>
+
+    <!-- The text color of single checkable button -->
+    <attr name="checkableButtonTextColorSingle" format="color|reference" />
+    <!-- The text color of multiple checkable button -->
+    <attr name="checkableButtonTextColorMultiple" format="color|reference" />
+    <!-- The background drawable of button -->
+    <attr name="buttonBackground" format="reference" />
+    <!-- The background drawable of button with warning style -->
+    <attr name="buttonBackgroundWarning" format="reference" />
+    <!-- The text color of button -->
+    <attr name="textColorButton" format="color|reference" />
+    <!-- The bottom bar default button style -->
+    <attr name="buttonBarDefaultButtonStyle" format="reference" />
+
+    <!-- =================== -->
+    <!-- EditText styles  -->
+    <!-- =================== -->
+    <eat-comment/>
+
+    <attr name="editTextSearchStyle" format="reference"/>
+
+    <!-- Set of attributes that describe a NavigationLayout's theme. !-->
+    <declare-styleable name="NavigationLayout">
+        <!-- The divider shows between navigation and content when drawer is disabled -->
+        <attr name="navigationDivider" format="color|reference" />
+        <!-- The divider width -->
+        <attr name="navigationDividerWidth" format="dimension|reference" />
+        <!-- The shadow shows in the right edge of navigation when drawer is enabled -->
+        <attr name="navigationShadow" format="reference" />
+        <!-- The scrim color, the mask color cover the content view -->
+        <attr name="navigationScrimColor" format="reference|color" />
+        <!-- Portrait navigation width -->
+        <attr name="portraitNavigationWidth" format="dimension|fraction|float" />
+        <!-- Landscape navigation width -->
+        <attr name="landscapeNavigationWidth" format="dimension|fraction|float" />
+        <!-- Phone orientation on which drawer is enabled -->
+        <attr name="drawerEnabledOrientation">
+            <!-- disable swipe out navigation for each screen orientation -->
+            <flag name="none" value="0x0" />
+            <!-- enable swipe out navigation for portrait -->
+            <flag name="portrait" value="0x1" />
+            <!-- enable swipe out navigation landscape -->
+            <flag name="landscape" value="0x2" />
+        </attr>
+        <!-- The mode to open navigation drawer -->
+        <attr name="drawerMode">
+            <!-- navigation overlay on content -->
+            <enum name="overlay" value="0" />
+            <!-- navigation pushed away content -->
+            <enum name="pushedAway" value="1" />
+            <!-- navigation squeeze content -->
+            <enum name="squeezed" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <!-- Reference to a style for NavigationLayout -->
+    <attr name="navigationLayoutStyle" format="reference" />
+
+    <!-- =============================== -->
+    <!-- AlphabetFastIndexer attributes -->
+    <!-- =============================== -->
+    <declare-styleable name="AlphabetFastIndexer">
+        <attr name="indexerTable" format="reference"/>
+        <attr name="indexerTextSize" format="dimension|reference"/>
+        <attr name="indexerTextColor" format="color|reference"/>
+        <attr name="indexerTextActivatedColor" format="color|reference"/>
+        <attr name="indexerTextHighlightColor" format="color|reference"/>
+        <attr name="indexerTextHighligtBackground" format="reference"/>
+        <attr name="drawOverlay" format="boolean"/>
+        <attr name="overlayBackground" format="reference"/>
+        <attr name="overlayMarginLeft" format="dimension|reference"/>
+        <attr name="overlayMarginTop" format="dimension|reference"/>
+        <attr name="overlayTextSize" format="dimension|reference"/>
+        <attr name="overlayTextColor" format="color|reference"/>
+    </declare-styleable>
+
+    <!-- List view item background attribute -->
+    <attr name="listViewItemBackground" format="reference"/>
+
+    <!-- Window content mask drawable. -->
+    <attr name="windowContentMask" format="color|reference" />
+
+    <!-- list item popup menu text color-->
+    <attr name="textColorPopupMenuListItem" format="color|reference" />
+
+    <!-- Action bar movable layout style. -->
+    <declare-styleable name="ActionBarMovableLayout">
+        <!-- Over scroll range. -->
+        <attr name="overScrollRange" format="dimension" />
+        <!-- Scroll range. -->
+        <attr name="scrollRange" format="dimension" />
+        <!-- Scroll start. -->
+        <attr name="scrollStart" format="dimension" />
+    </declare-styleable>
+    <!-- ActionBarMovableLayout style. -->
+    <attr name="actionBarMovableLayoutStyle" format="reference" />
+
+    <declare-styleable name="Rotation3DLayout_Layout">
+        <attr name="android:layout_gravity" />
+        <!-- Indicate the height in the z axis of the view which is the direct child of Rotation3DLayout -->
+        <attr name="layout_zdistance" format="integer" />
+    </declare-styleable>
+
+    <!-- Rotation3DLayout style. -->
+    <declare-styleable name="Rotation3DLayout">
+        <!-- Indicate the maximum degree that the Rotation3DLayout can rotate -->
+        <attr name="maxRotationDegree" format="float" />
+        <!-- Whether enable the automatic rotation which is effected by the gravity -->
+        <attr name="autoGravityRotation" format="boolean" />
+    </declare-styleable>
+
+    <!-- The spinner dropdown selector text color. -->
+    <attr name="textColorSpinnerDropdownSelector" format="reference|color" />
+    <!-- The text color of menu's list item -->
+    <attr name="textColorMenuListItem" format="reference|color" />
+    <!-- The text color of spinner dropdown's list item -->
+    <attr name="textColorSpinnerListItem" format="reference|color" />
+
+    <!-- drop down popup window listview backgroud-->
+    <attr name="dropdownListViewBackground" format="reference|color" />
+    <!-- drop down popup window list item backgroud-->
+    <attr name="dropdownListItemBackground" format="reference|color" />
+
+    <!-- Hint color for edit text-->
+    <attr name="editTextColorHint" format="reference|color" />
+    <!-- Hint color for dialog edit text-->
+    <attr name="editTextColorHintDialog" format="reference|color" />
+    <!-- Text color for dialog edit text-->
+    <attr name="editTextColorDialog" format="reference|color" />
+    <!-- background color for dialog edit text-->
+    <attr name="editTextColorDialogBackground" format="reference|color" />
+
+    <!-- color of edit text for search -->
+    <attr name="searchEditTextColor" format="reference|color" />
+    <!-- hint color of edit text for search -->
+    <attr name="searchEditTextHintColor" format="reference|color" />
+
+    <!-- style of dropdown imageview -->
+    <attr name="dropdownImageViewStyle" format="reference" />
+
+    <!-- The text color of checked state text -->
+    <attr name="textColorChecked" format="reference|color" />
+
+    <!-- The preferred dialog list item height. -->
+    <attr name="dialogListPreferredItemHeight" format="dimension" />
+    <!-- A smaller, sleeker dialog list item height. -->
+    <attr name="dialogListPreferredItemHeightSmall" format="dimension" />
+    <!-- A larger, more robust dialog list item height. -->
+    <attr name="dialogListPreferredItemHeightLarge" format="dimension" />
+
+    <!-- The title text color for simple list dialog -->
+    <attr name="dialogSimpleListTitleColor" format="reference|color" />
+
+    <!-- Style of CheckBox in dialog -->
+    <attr name="dialogCheckBoxStyle" format="reference" />
+
+    <!-- True if the content in this view might overlap, false otherwise. -->
+    <attr name="hasOverlappingRendering" format="boolean" />
+
+    <!-- Used to specify the size of the PlaceholderDrawable. -->
+    <declare-styleable name="PlaceholderDrawableSize">
+        <!-- Width of the drawable. -->
+        <attr name="android:width" />
+        <!-- Height of the drawable. -->
+        <attr name="android:height" />
+    </declare-styleable>
+
+    <!-- Used to specify the optional padding of a PlaceholderDrawable. -->
+    <declare-styleable name="PlaceholderDrawablePadding">
+        <!-- Amount of left padding inside the drawable. -->
+        <attr name="android:left" />
+        <!-- Amount of top padding inside the drawable. -->
+        <attr name="android:top" />
+        <!-- Amount of right padding inside the drawable. -->
+        <attr name="android:right" />
+        <!-- Amount of bottom padding inside the drawable. -->
+        <attr name="android:bottom" />
+    </declare-styleable>
+
+    <!-- Default style for RadioButtonPreference. -->
+    <attr name="radioButtonPreferenceStyle" format="reference" />
+
+    <!-- Default style for ValuePreference. -->
+    <attr name="valuePreferenceStyle" format="reference" />
+
+    <!-- Base attributes available to RadioButtonPreference. -->
+    <declare-styleable name="RadioButtonPreference">
+        <attr name="android:layout" />
+        <attr name="android:widgetLayout"/>
+    </declare-styleable>
+
+    <!-- Default style for ButtonPreference. -->
+    <attr name="buttonPreferenceStyle" format="reference" />
+
+    <!-- Action bar tab badge imageview -->
+    <attr name="actionBarTabBadgeIcon" format="reference" />
+
+    <!-- Hybrid view style. -->
+    <declare-styleable name="HybridViewStyle">
+        <!-- Flag indicating whether hybrid view has progress bar. -->
+        <attr name="hybridProgressBar">
+            <!-- No progress bar. -->
+            <enum name="none" value="0" />
+            <!-- Circular progress bar. -->
+            <enum name="circular" value="1" />
+            <!-- Horizontal progress bar. -->
+            <enum name="horizontal" value="2" />
+        </attr>
+
+        <!-- Whether to show hybrid error page. -->
+        <attr name="hybridErrorPage" format="boolean" />
+
+        <!-- Whether hybrid view is pullable -->
+        <attr name="hybridPullable" format="boolean" />
+    </declare-styleable>
+
+    <attr name="slidingBarColor" format="reference|color" />
+
+    <!-- search action mode input view backgroud -->
+    <attr name="searchActionModeInputBackground" format="reference|color" />
+
+    <!-- color of divider line -->
+    <attr name="colorDividerLine" format="reference|color" />
+
+    <!-- main action button background -->
+    <attr name="actionButtonMainBackground" format="reference" />
+
+    <!-- for A4 to change backgroundDimAmount by theme -->
+    <attr name="backgroundDim" format="reference" />
+
+    <!-- =============================== -->
+    <!-- Non-GUI attributes -->
+    <!-- =============================== -->
+    <eat-comment/>
+
+    <declare-styleable name="DataUpdate">
+        <attr name="serviceName" format="string"/>
+    </declare-styleable>
+
+    <!-- Used to indicate which theme the current theme overrides from. -->
+    <attr name="themeType">
+        <!-- holo light theme. -->
+        <enum name="holoLight" value="0" />
+        <!-- holo dark theme. -->
+        <enum name="holoDark" value="1" />
+    </attr>
+
+    <declare-styleable name="ScrollableViewDrawer">
+        <attr name="contentView" format="integer" />
+        <attr name="targetView" format="integer" />
+        <attr name="scrollableView" format="integer" />
+        <attr name="scrollDivider" format="reference" />
+        <attr name="dragEnabled" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="TriggerViewDrawer">
+        <attr name="contentView" />
+        <attr name="targetView" />
+        <attr name="scrollableView" />
+        <attr name="triggerView" format="integer" />
+        <attr name="triggerDistance" format="dimension" />
+        <attr name="scrollDivider" />
+        <attr name="dragEnabled" />
+    </declare-styleable>
+
+    <!-- Default style for TriggerViewDrawer. -->
+    <attr name="triggerViewDrawerStyle" format="reference" />
+
+    <declare-styleable name="AutoScaleTextView">
+        <attr name="minTextSize" format="dimension|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="MessageView">
+        <attr name="android:text" />
+        <attr name="android:textColor" />
+        <attr name="closeBackground" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="FilterSortView">
+        <attr name="android:text" />
+        <attr name="descending" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="DynamicExtension">
+        <attr name="extensionTarget" format="string" />
+        <attr name="extensionAction" format="string" />
+        <attr name="extensionInvoker" format="string" />
+    </declare-styleable>
+
+    <!-- Text color for GuidePopupView item. -->
+    <attr name="textColorGuidePopupItem" format="color|reference" />
+
+    <!-- FloatingActionButton style -->
+    <declare-styleable name="FloatingActionButton">
+        <attr name="fabColor" format="color|reference" />
+        <attr name="fabShadowEnabled" format="boolean" />
+    </declare-styleable>
+
+    <!-- Default style for FloatingActionButton -->
+    <attr name="floatingActionButtonStyle" format="reference" />
+
+    <!-- NestedScrollingLayout style -->
+    <declare-styleable name="NestedScrollingLayout">
+        <attr name="scrollableView" />
+    </declare-styleable>
+
+    <!-- NestedHeaderLayout style -->
+    <declare-styleable name="NestedHeaderLayout">
+        <attr name="headerView" format="reference"/>
+        <attr name="rangeOffset" format="dimension"/>
+    </declare-styleable>
+
+    <!-- Text color for single choice item in dialog -->
+    <attr name="textColorDialogSingleChoiceItem" format="reference|color" />
+
+    <!-- The color for progress bar background -->
+    <attr name="progressBarBackground" format="color|reference" />
+    <!-- The color for horizontal progress bar -->
+    <attr name="progressBarColorHorizontal" format="color|reference" />
+
+    <!-- The color for circle progress bar -->
+    <attr name="circleProgressBarColor" format="color|reference" />
+
+    <!-- The drawable for seek point highlight -->
+    <attr name="screenViewSeekPointHighlight" format="reference" />
+    <!-- The drawable for seek point normal -->
+    <attr name="screenViewSeekPointNormal" format="reference" />
+    <!-- The color for dialog title -->
+    <attr name="dialogTitleTextColor" format="color|reference" />
+    <!-- The color for dialog button text default -->
+    <attr name="dialogButtonTextColorDefault" format="color|reference" />
+    <!-- The color for dialog button text -->
+    <attr name="dialogButtonTextColor" format="color|reference" />
+    <!-- The background drawable for dialog button -->
+    <attr name="dialogButtonBackground" format="reference" />
+    <!-- The background drawable for seach stub -->
+    <attr name="searchModeBackground" format="reference" />
+    <!-- The background drawable for seach stub -->
+    <attr name="searchModeEditTextBackground" format="reference" />
+    <!-- The icon drawable for seach stub -->
+    <attr name="editTextSearchIcon" format="reference" />
+    <!-- The background drawable for spinner widget -->
+    <attr name="spinnerBackground" format="reference" />
+    <!-- The background drawable for spinner drop down widget -->
+    <attr name="spinnerDropDownBackground" format="reference" />
+    <!-- The text color for spinner drop down item -->
+    <attr name="spinnerDropDownItemTextColor" format="color|reference" />
+    <!-- The background drawable for spinner drop down item -->
+    <attr name="spinnerDropDownItemBackground" format="reference" />
+    <!-- The background drawable for spinner edit -->
+    <attr name="spinnerEditBackground" format="reference" />
+    <!-- The background drawable for edit text -->
+    <attr name="editTextBackground" format="reference" />
+    <!-- The background drawable for edit text in spinner style -->
+    <attr name="editTextSpinnerBackground" format="reference" />
+    <!-- the shadow drawable for dynamic listview dragging item -->
+    <attr name="dynamicListviewDraggingItemShadow" format="reference" />
+    <!-- the shadow drawable for dynamic listview dragging item -->
+    <attr name="buttonRectStyleBackground" format="reference" />
+    <!-- the text color for word photo text -->
+    <attr name="wordPhotoTextColor" format="color|reference" />
+    <!-- the background drawable for word photo background -->
+    <attr name="wordPhotoBackground" format="reference" />
+    <!-- The background drawable for dialog list item -->
+    <attr name="listViewItemBackgroundDialog" format="reference" />
+    <!-- The button drawable for miui radio button -->
+    <attr name="radioButtonDrawable" format="reference" />
+    <!-- The text color for filter sort tab view -->
+    <attr name="filterSortTabViewTextColor" format="color|reference" />
+    <!-- The text color for drop down popup list -->
+    <attr name="dropdownPopupListTextColor" format="color|reference" />
+    <!-- The background drawable for error message view -->
+    <attr name="messageViewBackgroundError" format="reference" />
+    <!-- The background drawable for warning message view -->
+    <attr name="messageViewBackgroundWarning" format="reference" />
+    <!-- The background drawable for guide message view -->
+    <attr name="messageViewBackgroundGuide" format="reference" />
+    <!-- The text appearance for checkbox text in dialog -->
+    <attr name="dialogCheckBoxTextAppearance" format="reference" />
+    <!-- The text color for dialog check box -->
+    <attr name="dialogCheckBoxTextColor" format="color|reference" />
+    <!-- The start drawable for dialog check box -->
+    <attr name="dialogCheckBoxDrawableStart" format="reference" />
+    <!-- The background drawable for delete button inline -->
+    <attr name="buttonInlineDeleteBackground" format="reference" />
+    <!-- The background drawable for detail button inline -->
+    <attr name="buttonInlineDetailBackground" format="reference" />
+    <!-- The background drawable for expand button inline -->
+    <attr name="buttonInlineExpandBackground" format="reference" />
+    <!-- The background drawable for shrink button inline -->
+    <attr name="buttonInlineShrinkBackground" format="reference" />
+    <!-- The text color for alphabet indexer -->
+    <attr name="alphabetIndexerTextColor" format="color|reference" />
+    <!-- The text color for alphabet indexer activated -->
+    <attr name="alphabetIndexerTextColorActivated" format="color|reference" />
+    <!-- The text color for alphabet indexer highlight -->
+    <attr name="alphabetIndexerTextColorHighlight" format="color|reference" />
+    <!-- The background drawable for alphabet indexer -->
+    <attr name="alphabetIndexerBackground" format="reference" />
+    <!-- The drawable for compound button checkbox expand -->
+    <attr name="compoundButtonCheckboxExpandDrawable" format="reference" />
+    <!-- The drawable for preference item background -->
+    <attr name="preferenceItemBackground" format="reference" />
+    <!-- The drawable for preference category background -->
+    <attr name="preferenceCategoryBackground" format="reference" />
+    <!-- The drawable for first preference category background -->
+    <attr name="preferenceCategoryFirstBackground" format="reference" />
+    <!-- The drawable for first preference category background without title -->
+    <attr name="preferenceCategoryFirstNoTitleBackground" format="reference" />
+    <!-- The drawable for preference category background without title -->
+    <attr name="preferenceCategoryNoTitleBackground" format="reference" />
+    <!-- The drawable for arrow right -->
+    <attr name="arrowRightDrawable" format="reference" />
+    <!-- The color for alphabet indexer overlay -->
+    <attr name="alphabetIndexerOverlayColor" format="color|reference" />
+    <!-- The color for alphabet indexer text highlight -->
+    <attr name="alphabetIndexerTextHighlightBackground" format="color|reference" />
+    <!-- The drawable for arrow filter sort view -->
+    <attr name="arrowFilterSortTabView" format="reference" />
+    <!-- The drawable for filter sort tab view background -->
+    <attr name="filterSortTabViewBackground" format="reference" />
+    <!-- The drawable for dropdown arrow -->
+    <attr name="dropdownArrow" format="reference" />
+    <!-- The drawable for dialog title background -->
+    <attr name="dialogTitleBackground" format="reference" />
+    <!-- The color for arrow popup window dim -->
+    <attr name="arrowPopupWindowDimColor" format="color|reference" />
+    <!-- The color for action bar overlay mask color -->
+    <attr name="actionbarOverlayMaskColor" format="color|reference" />
+    <!-- The color for oled action bar overlay mask color -->
+    <attr name="actionbarOverlayMaskColorOled" format="color|reference" />
+    <!-- The theme for menu dialog -->
+    <attr name="menuDialogTheme" format="reference" />
+    <!-- The text color for preference category -->
+    <attr name="preferenceCategoryTextColor" format="color|reference" />
+
+    <!-- The text appearance for discritpion text view -->
+    <attr name="descriptionTextAppearance" format="reference" />
+    <!-- The elevation for popupwindow -->
+    <attr name="popupWindowElevation" format="dimension|reference" />
+    <!-- The min width for popupwindow -->
+    <attr name="popupWindowMinWidth" format="dimension|reference" />
+    <!-- The shadow alpha for popupwindow -->
+    <attr name="popupWindowShadowAlpha" format="dimension|reference" />
+    <!-- The elevation for arrowPopupwindow -->
+    <attr name="arrowPopupWindowElevation" format="dimension|reference" />
+
+    <attr name="stateEditTextStyle" format="reference"/>
+    <attr name="visibilityIcon" format="reference"/>
+    <attr name="label" format="reference|string"/>
+    <attr name="widgetManager" format="string"/>
+    <attr name="widgetPadding" format="reference|dimension"/>
+    <declare-styleable name="StateEditText">
+        <attr name="widgetManager"/>
+        <attr name="label"/>
+        <attr name="widgetPadding"/>
+    </declare-styleable>
+    <attr name="textColorSearchBarCancel" format="color|reference" />
+
+    <attr name="checkWidgetDisableDrawableBackgroundColor" format="color|reference" />
+    <attr name="checkWidgetOnAlphaDrawableBackgroundColor" format="color|reference" />
+    <attr name="checkWidgetStrokeColor" format="color|reference" />
+    <attr name="checkWidgetBackgroundNormalAlpha" format="integer|reference" />
+    <attr name="checkWidgetBackgroundDisableAlpha" format="integer|reference" />
+    <attr name="checkWidgetStrokeNormalAlpha" format="integer|reference" />
+    <attr name="checkWidgetStrokeDisableAlpha" format="integer|reference" />
+
+    <attr name="checkBoxOnDrawableBackgroundColor" format="color|reference" />
+    <attr name="checkBoxOnDrawableForegroundColor" format="color|reference" />
+    <attr name="checkBoxDrawableTouchAnimEnable" format="boolean" />
+    <attr name="radioButtonOnDrawableBackgroundColor" format="color|reference" />
+    <attr name="radioButtonOnDrawableForegroundColor" format="color|reference" />
+    <attr name="radioButtonDrawableTouchAnimEnable" format="boolean" />
+
+    <declare-styleable name="CheckWidgetDrawable">
+        <attr name="checkwidget_disableBackgroundColor" format="color|reference" />
+        <attr name="checkwidget_checkOnAlphaBackgroundColor" format="color|reference" />
+        <attr name="checkwidget_checkOnBackgroundColor" format="color|reference" />
+        <attr name="checkwidget_checkOnForegroundColor" format="color|reference" />
+        <attr name="checkwidget_strokeColor" format="color|reference" />
+        <attr name="checkwidget_backgroundNormalAlpha" format="integer|reference" />
+        <attr name="checkwidget_backgroundDisableAlpha" format="integer|reference" />
+        <attr name="checkwidget_strokeNormalAlpha" format="integer|reference" />
+        <attr name="checkwidget_strokeDisableAlpha" format="integer|reference" />
+        <attr name="checkwidget_touchAnimEnable" format="boolean" />
+    </declare-styleable>
+
+    <attr name="seekBarProgressDrawable" format="reference" />
+    <attr name="seekBarThumbDrawable" format="reference" />
+    <attr name="seekBarProgressForegroundNormalColor" format="color|reference" />
+    <attr name="seekBarProgressForegroundDisableColor" format="color|reference" />
+    <attr name="seekBarProgressBackgroundDrawable" format="reference" />
+    <attr name="seekBarProgressMaskDrawable" format="reference" />
+</resources>

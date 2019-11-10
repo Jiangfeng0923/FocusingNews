@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+ * Copyright (C) 2013, Xiaomi Inc. All rights reserved.
+ */
+-->
+<com.miuix.widget.DialogParentPanel
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parentPanel"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <FrameLayout android:id="@+id/topPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView android:id="@+id/alertTitle"
+            style="?android:attr/windowTitleStyle"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+        <!-- If the client uses a customTitle, it will be added here. -->
+    </FrameLayout>
+
+    <LinearLayout android:id="@+id/contentPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <androidx.core.widget.NestedScrollView android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:overScrollMode="ifContentScrolls">
+            <com.miuix.widget.SingleCenterTextView android:id="@id/message"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+
+    <FrameLayout android:id="@id/customPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+        <FrameLayout android:id="@android:id/custom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </FrameLayout>
+
+    <FrameLayout android:id="@+id/checkboxPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <CheckBox android:id="@android:id/checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="?android:attr/checkboxStyle" />
+    </FrameLayout>
+
+    <LinearLayout android:id="@+id/buttonPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+        <LinearLayout android:id="@+id/buttonGroup"
+            style="?android:attr/buttonBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:measureWithLargestChild="true"
+            android:baselineAligned="false">
+            <com.miuix.widget.GroupButton android:id="@android:id/button2"
+                android:layout_width="0dip"
+                android:gravity="center"
+                android:layout_weight="1"
+                style="?android:attr/buttonBarButtonStyle"
+                android:maxLines="2"
+                android:layout_height="wrap_content" />
+            <com.miuix.widget.GroupButton android:id="@android:id/button3"
+                android:layout_width="0dip"
+                android:gravity="center"
+                android:layout_weight="1"
+                style="?android:attr/buttonBarButtonStyle"
+                android:maxLines="2"
+                android:layout_height="wrap_content" />
+            <com.miuix.widget.GroupButton android:id="@android:id/button1"
+                android:layout_width="0dip"
+                android:gravity="center"
+                android:layout_weight="1"
+                style="?android:attr/buttonBarButtonStyle"
+                android:maxLines="2"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+</com.miuix.widget.DialogParentPanel>

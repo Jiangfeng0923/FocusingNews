@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+ * Copyright (C) 2013, Xiaomi Inc. All rights reserved.
+ */
+-->
+<resources>
+
+    <attr name="test_attr" format="reference"></attr>
+    <declare-styleable name="testCheckWidgetDrawable">
+        <attr name="testlayout" format="reference" />
+    </declare-styleable>
+</resources>

@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+ * Copyright (C) 2013, Xiaomi Inc. All rights reserved.
+ */
+-->
+<resources>
+    <!-- The text size of large text. -->
+    <dimen name="large_text_size">18sp</dimen>
+    <!-- The text size of medium text. -->
+    <dimen name="subtitle_text_size">12.67sp</dimen>
+
+    <!-- Maximum width for a stacked action bar tab. This prevents
+         action bar tabs from becoming too wide on a wide screen when only
+         a few are present. -->
+    <dimen name="action_bar_stacked_tab_max_width">180dp</dimen>
+
+    <!-- Default height of an split action bar. -->
+    <dimen name="split_action_bar_default_height">66.67dip</dimen>
+    <!-- Height of large action bar-->
+    <dimen name="action_bar_large_height">65dp</dimen>
+    <!-- Top margin for action bar subtitles -->
+    <dimen name="action_bar_subtitle_top_margin">-3dp</dimen>
+    <!-- Bottom margin for action bar subtitles -->
+    <dimen name="action_bar_subtitle_bottom_margin">0dip</dimen>
+
+    <!-- The text size of tab view text size -->
+    <dimen name="tab_bar_text_size">16sp</dimen>
+    <!-- The text size of tab view text size -->
+    <dimen name="tab_bar_height">47dip</dimen>
+
+    <!-- ActionMenuItemView Padding-->
+    <dimen name="action_menu_item_view_padding_left">3dip</dimen>
+    <dimen name="action_menu_item_view_padding_right">3dip</dimen>
+
+    <!-- The maximum width we would prefer dialogs to be.  0 if there is no
+    maximum (let them grow as large as the screen).  Actual values are
+    specified for -large and -xlarge configurations. -->
+    <dimen name="config_prefDialogWidth">320dp</dimen>
+
+    <!--List item height -->
+    <dimen name="list_preferred_item_padding_left">23.33dip</dimen>
+    <dimen name="list_preferred_item_padding_right">23.33dip</dimen>
+    <dimen name="list_item_group_header_height">31.33dip</dimen>
+
+    <!-- Height of Horizontal Progressbar -->
+    <dimen name="progressbar_horizontal_height">35dip</dimen>
+    <!-- Height of Small Horizontal Progressbar -->
+    <dimen name="progressbar_horizontal_small_height">25dip</dimen>
+    <!-- Height of Horizontal Indeterminate Progressbar -->
+    <dimen name="progressbar_horizontal_indeterminate_height">10dip</dimen>
+    <dimen name="progressbar_horizontal_indeterminate_max_height">25dip</dimen>
+
+    <!-- Width and height of only indeterminate small progress bar -->
+    <dimen name="progressbar_size_small">18.33dip</dimen>
+
+    <!-- Size of rating bar -->
+    <dimen name="ratingbar_size">12.5dip</dimen>
+    <!-- Size of rating bar that used as indicator -->
+    <dimen name="ratingbar_size_indicator">12.5dip</dimen>
+    <!-- Size of small rating bar -->
+    <dimen name="ratingbar_size_small">10dip</dimen>
+    <!-- Size of large rating bar -->
+    <dimen name="ratingbar_size_large">18dip</dimen>
+
+    <!--preference -->
+    <dimen name="preference_item_padding_side">20dip</dimen>
+    <dimen name="preference_item_padding_side_zero">0dip</dimen>
+    <dimen name="preference_category_item_padding_side">30dip</dimen>
+    <dimen name="preference_screen_padding_bottom">15dip</dimen>
+    <dimen name="preference_child_padding_side">15dip</dimen>
+    <dimen name="preference_icon_minWidth">0dip</dimen>
+    <dimen name="preference_item_padding_inner">8.66dip</dimen>
+    <dimen name="preference_widget_width">10dip</dimen>
+    <dimen name="preference_icon_padding_side">10dip</dimen>
+    <dimen name="preference_dialog_edittext_margin">48dip</dimen>
+    <dimen name="preference_dialog_edittext_padding_side">20dip</dimen>
+    <dimen name="preference_dialog_edittext_padding_top">5dip</dimen>
+    <dimen name="preference_fragment_padding_side">16dp</dimen>
+    <dimen name="preference_fragment_padding_bottom">0dp</dimen>
+    <dimen name="preference_button_margin_top">20dip</dimen>
+    <dimen name="preference_value_padding_top">6dip</dimen>
+    <dimen name="preference_value_padding_bottom">6dip</dimen>
+    <dimen name="preference_value_max_width">150dip</dimen>
+    <!-- Used to set the right margin of custom widget in widget fame of preference -->
+    <dimen name="preference_custom_widget_margin_right">-10dip</dimen>
+    <dimen name="preference_horizontal_extra_padding">0dip</dimen>
+    <integer name="preference_fragment_scrollbarStyle">0x02000000</integer> <!-- outsideOverlay -->
+    <dimen name="preference_icon_max_height">47dip</dimen>
+    <dimen name="preference_icon_min_width">48dip</dimen>
+
+    <!-- The left padding of preference divider with icon -->
+    <dimen name="preference_divider_with_icon_padding_left">66.67dp</dimen>
+
+    <!-- Minimum height of alert dialog title -->
+    <dimen name="alert_dialog_title_min_height">50dip</dimen>
+
+    <!-- alphabet fast indexer -->
+    <dimen name="alphabet_indexer_overlay_text_size">28dip</dimen>
+    <dimen name="alphabet_indexer_overlay_padding_top">0dip</dimen>
+    <dimen name="alphabet_indexer_overlay_offset">20dip</dimen>
+    <dimen name="alphabet_indexer_text_size">12dip</dimen>
+
+    <!-- The dimensions of NumberPicker -->
+    <dimen name="numberpicker_label_padding">15dip</dimen>
+    <dimen name="numberpicker_highlight_region_height">54.55dp</dimen>
+
+    <!--guide popup window -->
+    <dimen name="guide_popup_horizontal_padding">13.67dip</dimen>
+    <dimen name="guide_popup_vertical_padding">12.33dip</dimen>
+
+    <!--arrow popup window -->
+    <!-- Max height for listview. -->
+    <dimen name="arrow_popup_window_list_max_height">400dip</dimen>
+    <!-- Min border for arrow popup. -->
+    <dimen name="arrow_popup_window_min_border">15dip</dimen>
+
+    <!-- Default contact photo width -->
+    <dimen name="contact_photo_width">67dip</dimen>
+
+    <!-- horizontal padding of listview -->
+    <dimen name="listview_horizontal_padding">0dip</dimen>
+
+    <!-- overlay height of split action bar -->
+    <dimen name="split_action_bar_overlay_height">0dip</dimen>
+
+    <!-- progress bar horizontal padding of action bar. -->
+    <dimen name="actionbar_progressbar_horizontal_padding">10dip</dimen>
+
+    <!-- start point radius for guide popup view. -->
+    <dimen name="guide_popup_start_point_radius">2.7dip</dimen>
+    <!-- start point radius for guide popup view. -->
+    <dimen name="guide_popup_line_length">63.3dip</dimen>
+    <!-- text circle radius for guide popup view. -->
+    <dimen name="guide_popup_text_radius">50.7dip</dimen>
+    <!-- text size of text view of guide popup view. -->
+    <dimen name="guide_popup_text_size">10.67sp</dimen>
+
+    <!-- The platform's desired minimum size for a dialog's width when it
+         is along the major axis (that is the screen is landscape).  This may
+         be either a fraction or a dimension. -->
+    <item type="dimen" name="dialog_min_width_major">43%</item>
+    <!-- The platform's desired minimum size for a dialog's width when it
+         is along the minor axis (that is the screen is portrait).  This may
+         be either a fraction or a dimension. -->
+    <item type="dimen" name="dialog_min_width_minor">45%</item>
+
+    <!-- The platform's desired fixed width for a dialog along the major axis
+         (the screen is in landscape). This may be either a fraction or a dimension.-->
+    <item type="dimen" name="dialog_fixed_width_major">525dp</item>
+    <!-- The platform's desired fixed width for a dialog along the minor axis
+         (the screen is in portrait). This may be either a fraction or a dimension.-->
+    <item type="dimen" name="dialog_fixed_width_minor">525dip</item>
+    <!-- The platform's desired fixed height for a dialog along the major axis
+         (the screen is in portrait). This may be either a fraction or a dimension.-->
+    <item type="dimen" name="dialog_fixed_height_major">525dip</item>
+    <!-- The platform's desired fixed height for a dialog along the minor axis
+         (the screen is in landscape). This may be either a fraction or a dimension.-->
+    <item type="dimen" name="dialog_fixed_height_minor">525dip</item>
+    <!-- The platform's desired fixed width for a small dialog along the major axis
+         (the screen is in landscape). This may be either a fraction or a dimension.-->
+    <item type="dimen" name="dialog_fixed_width_major_small">550dp</item>
+    <!-- The platform's desired fixed width for a small dialog along the minor axis
+         (the screen is in portrait). This may be either a fraction or a dimension.-->
+    <item type="dimen" name="dialog_fixed_width_minor_small">550dip</item>
+    <!-- The platform's desired fixed height for a small dialog along the major axis
+         (the screen is in portrait). This may be either a fraction or a dimension.-->
+    <item type="dimen" name="dialog_fixed_height_major_small">550dip</item>
+    <!-- The platform's desired fixed height for a small dialog along the minor axis
+         (the screen is in landscape). This may be either a fraction or a dimension.-->
+    <item type="dimen" name="dialog_fixed_height_minor_small">550dip</item>
+    <!-- The platform's desired max width for a dialog along the major axis
+         (the screen is in landscape). This may be either a fraction or a dimension.-->
+    <item type="dimen" name="dialog_max_width_major">45%</item>
+    <!-- The platform's desired max width for a dialog along the minor axis
+         (the screen is in portrait). This may be either a fraction or a dimension.-->
+    <item type="dimen" name="dialog_max_width_minor">62%</item>
+
+    <!-- The width of navigation divider. -->
+    <item type="dimen" name="navigation_divider_width">1px</item>
+
+    <!-- The drawable padding of dialog icon.-->
+    <item type="dimen" name="dialog_icon_drawable_padding">10dp</item>
+    <!-- The vertical padding of alert dialog title with picker.-->
+    <item type="dimen" name="dialog_title_average_vertical_padding">15.58dp</item>
+    <!-- The vertical padding of alert dialog content without title. -->
+    <item type="dimen" name="dialog_message_without_title_vertical_padding">33dp</item>
+    <!-- The horizontal padding of dialog edittext view. -->
+    <item type="dimen" name="dialog_edit_text_horizontal_padding">16.67dp</item>
+    <!-- The size of alert dialog checkbox. -->
+    <item type="dimen" name="dialog_checkbox_text_size">14sp</item>
+    <!-- The horizontal margin of dialog progress. -->
+    <dimen name="dialog_progress_horizontal_margin">15.34dp</dimen>
+
+    <!-- Action bar tab layout_width (wrap_content). -->
+    <dimen name="action_bar_tab_layout_width">-2dip</dimen>
+
+    <!-- The horizontal padding of date and time picker dialog title. -->
+    <item type="dimen" name="date_picker_dialog_marginBottom">0dip</item>
+
+    <!-- The platform's desired maximum size for a dialog's height when it
+         is along the major axis (that is the screen is landscape).  This may
+         be either a fraction or a dimension. -->
+    <item type="dimen" name="dialog_max_height_major">80%</item>
+    <!-- The platform's desired maximum size for a dialog's height when it
+         is along the minor axis (that is the screen is portrait).  This may
+         be either a fraction or a dimension. -->
+    <item type="dimen" name="dialog_max_height_minor">89%</item>
+
+    <!-- Default radius for blurring screen. -->
+    <item type="dimen" name="screenshot_blur_radius">15dip</item>
+
+    <!-- LicenseActivity padding. -->
+    <item type="dimen" name="license_activity_padding">32dip</item>
+
+    <!-- Default padding bottom of immersion list -->
+    <item type="dimen" name="immersion_list_padding_bottom">5dip</item>
+    <!-- Default width of immersion menu window -->
+    <item type="dimen" name="immersion_menu_window_width">0dip</item>
+    <!-- The margin right of immersion more button in action bar -->
+    <item type="dimen" name="action_mode_immersion_more_margin_right">0dip</item>
+    <!-- The margin end of immersion menu icon -->
+    <dimen name="immersion_menu_icon_margin_end">18dp</dimen>
+
+    <!-- Width of navigation in portrait mode -->
+    <item type="dimen" name="portrait_navigation_width">0.39</item>
+    <!-- Width of navigation in landscape mode -->
+    <item type="dimen" name="landscape_navigation_width">0.34</item>
+
+    <!-- The default height of status bar -->
+    <dimen name="status_bar_height">25dip</dimen>
+
+    <!-- The top padding of hybrid view provider. -->
+    <dimen name="hybrid_provider_padding_top">21.3dip</dimen>
+    <!-- The drawable padding of no network tip text view. -->
+    <dimen name="no_network_tip_drawable_padding">17.3dip</dimen>
+    <!-- The bottom padding of no network tip text view. -->
+    <dimen name="no_network_padding_bottom">43.3dip</dimen>
+    <!-- The extra line spacing of no network tip text view. -->
+    <dimen name="no_network_line_spacing_extra">4.7dip</dimen>
+
+    <!-- The max width of action button. -->
+    <dimen name="action_button_max_width">110dip</dimen>
+    <!-- The min width of action button. -->
+    <dimen name="action_button_min_width">63.33dp</dimen>
+
+    <!-- The horizontal padding of action bar. -->
+    <dimen name="action_bar_horizontal_padding">9.33dip</dimen>
+
+    <!-- The text size of filter sort view text-->
+    <item type="dimen" name="filter_sort_tab_view_text_size">10sp</item>
+    <!-- The margin left of filter sort view arrow-->
+    <item type="dimen" name="filter_sort_tab_view_image_margin">6.67dip</item>
+    <!-- the height of filter sort view -->
+    <item type="dimen" name="filter_sort_tab_view_height">40.33dp</item>
+
+    <!-- The dimensions for search mode bg. -->
+    <dimen name="search_mode_bg_padding_top">6dip</dimen>
+
+    <dimen name="list_menu_dialog_maximum_width">273dp</dimen>
+    <dimen name="list_menu_dialog_minimum_width">160dp</dimen>
+
+    <!-- The vertical padding of button. -->
+    <dimen name="button_vertical_padding">5dp</dimen>
+
+    <!-- The corner radius of slide button frame. -->
+    <dimen name="sliding_button_frame_corner_radius">33.34dp</dimen>
+    <!-- The horizontal padding of slide button frame. -->
+    <dimen name="sliding_button_frame_vertical_padding">12.84dp</dimen>
+    <!-- The horizontal padding of slide button mask. -->
+    <dimen name="sliding_button_mask_vertical_padding">12.84dp</dimen>
+    <!-- The line width of progressbar. -->
+    <dimen name="small_progress_bar_line_width">1.67dp</dimen>
+    <!-- The line radius of small progressbar. -->
+    <dimen name="small_progress_bar_line_radius">1.33dp</dimen>
+    <!-- The corner of preference item. -->
+    <dimen name="preference_item_corner">6.67dp</dimen>
+    <!-- The start margin of preference item. -->
+    <dimen name="preference_item_margin_start">10.33dp</dimen>
+    <!-- The end margin of preference item. -->
+    <dimen name="preference_item_margin_end">10.33dp</dimen>
+    <!-- The start margin of inner preference item. -->
+    <dimen name="preference_item_inner_margin_start">10.66dp</dimen>
+    <!-- The end margin of inner preference item. -->
+    <dimen name="preference_item_inner_margin_end">10.66dp</dimen>
+    <!-- the width for word photo border in dark mode -->
+    <dimen name="word_photo_border_size_dark">2px</dimen>
+    <!-- the height of dialog title -->
+    <dimen name="dialog_title_bg_height">33.7dp</dimen>
+
+    <dimen name="state_edit_widget_padding">13.3dp</dimen>
+    <!-- dimens for arrow popup view -->
+    <dimen name="arrow_popup_view_min_height">72.67dp</dimen>
+    <dimen name="arrow_popup_view_round_corners">10dp</dimen>
+    <dimen name="arrow_popup_triangle_corners">2dp</dimen>
+</resources>

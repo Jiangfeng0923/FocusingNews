@@ -25,6 +25,7 @@ import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.CheckedTextView;
 import android.widget.CursorAdapter;
 import android.widget.FrameLayout;
@@ -170,9 +171,9 @@ public class AlertController {
         mHandler = new ButtonHandler(di);
 
         final TypedArray a = context.obtainStyledAttributes(null, R.styleable.AlertDialog,
-                R.attr.alertDialogStyle, 0);
+                android.R.attr.alertDialogStyle, 0);
 
-        mAlertDialogLayout = a.getResourceId(R.styleable.AlertDialog_android_layout, 0);
+        mAlertDialogLayout = a.getResourceId(R.styleable.AlertDialog_layout, 0);
         mButtonPanelSideLayout = a.getResourceId(R.styleable.AlertDialog_buttonPanelSideLayout, 0);
 
         mListLayout = a.getResourceId(R.styleable.AlertDialog_listLayout, 0);
@@ -299,7 +300,6 @@ public class AlertController {
      * @param listener    The {@link DialogInterface.OnClickListener} to use.
      * @param msg         The {@link Message} to be sent when clicked.
      * @param icon        The (@link Drawable) to be used as an icon for the button.
-     *
      */
     public void setButton(int whichButton, CharSequence text,
                           DialogInterface.OnClickListener listener, Message msg, Drawable icon) {
@@ -375,7 +375,6 @@ public class AlertController {
     /**
      * @param attrId the attributeId of the theme-specific drawable
      *               to resolve the resourceId for.
-     *
      * @return resId the resourceId of the theme-specific drawable
      */
     public int getIconAttributeResId(int attrId) {
@@ -416,7 +415,7 @@ public class AlertController {
      * default panel if a custom panel should be used. If the resolved panel is
      * a view stub, inflates before returning.
      *
-     * @param customPanel the custom panel
+     * @param customPanel  the custom panel
      * @param defaultPanel the default panel
      * @return the panel to use
      */
@@ -536,6 +535,26 @@ public class AlertController {
                 listView.setSelection(checkedItem);
             }
         }
+
+        FrameLayout checkboxPanel = (FrameLayout) mWindow.findViewById(
+                R.id.checkboxPanel);
+        if (checkboxPanel != null) {
+            setupCheckbox(checkboxPanel);
+        }
+    }
+
+    private CharSequence mCheckBoxMessage;
+    private boolean mIsChecked;
+
+    private void setupCheckbox(FrameLayout checkboxPanel) {
+        if (mCheckBoxMessage != null) {
+            checkboxPanel.setVisibility(View.VISIBLE);
+            CheckBox cb = (CheckBox) checkboxPanel.findViewById(android.R.id.checkbox);
+            cb.setChecked(mIsChecked);
+            cb.setText(mCheckBoxMessage);
+        } else {
+            checkboxPanel.setVisibility(View.GONE);
+        }
     }
 
     private void setScrollIndicators(ViewGroup contentPanel, View content,
@@ -591,7 +610,8 @@ public class AlertController {
                     // We're just showing the AbsListView, set up listener.
                     mListView.setOnScrollListener(new AbsListView.OnScrollListener() {
                         @Override
-                        public void onScrollStateChanged(AbsListView view, int scrollState) {}
+                        public void onScrollStateChanged(AbsListView view, int scrollState) {
+                        }
 
                         @Override
                         public void onScroll(AbsListView v, int firstVisibleItem,
@@ -667,6 +687,7 @@ public class AlertController {
         } else {
             mIconView = (ImageView) mWindow.findViewById(android.R.id.icon);
 
+
             final boolean hasTextTitle = !TextUtils.isEmpty(mTitle);
             if (hasTextTitle && mShowTitle) {
                 // Display the title if a title is supplied, else hide it.
@@ -677,23 +698,35 @@ public class AlertController {
                 // use them instead of the default ones. If the user has
                 // specified 0 then make it disappear.
                 if (mIconId != 0) {
-                    mIconView.setImageResource(mIconId);
+                    if (mIconView != null) {
+                        mIconView.setImageResource(mIconId);
+                    }
+
                 } else if (mIcon != null) {
-                    mIconView.setImageDrawable(mIcon);
+                    if (mIconView != null) {
+                        mIconView.setImageDrawable(mIcon);
+                    }
+
                 } else {
                     // Apply the padding from the icon to ensure the title is
                     // aligned correctly.
-                    mTitleView.setPadding(mIconView.getPaddingLeft(),
-                            mIconView.getPaddingTop(),
-                            mIconView.getPaddingRight(),
-                            mIconView.getPaddingBottom());
-                    mIconView.setVisibility(View.GONE);
+                    if (mIconView != null) {
+                        mTitleView.setPadding(mIconView.getPaddingLeft(),
+                                mIconView.getPaddingTop(),
+                                mIconView.getPaddingRight(),
+                                mIconView.getPaddingBottom());
+                        mIconView.setVisibility(View.GONE);
+                    }
+
                 }
             } else {
                 // Hide the title template
                 final View titleTemplate = mWindow.findViewById(R.id.title_template);
                 titleTemplate.setVisibility(View.GONE);
-                mIconView.setVisibility(View.GONE);
+                if (mIconView != null) {
+                    mIconView.setVisibility(View.GONE);
+                }
+
                 topPanel.setVisibility(View.GONE);
             }
         }
@@ -705,7 +738,7 @@ public class AlertController {
         mScrollView.setNestedScrollingEnabled(false);
 
         // Special case for users that only want to display a String
-        mMessageView = (TextView) contentPanel.findViewById(android.R.id.message);
+        mMessageView = (TextView) contentPanel.findViewById(R.id.message);
         if (mMessageView == null) {
             return;
         }
@@ -900,6 +933,7 @@ public class AlertController {
 
             /**
              * Called before the ListView is bound to an adapter.
+             *
              * @param listView The ListView that will be shown in the dialog.
              */
             void onPrepareListView(ListView listView);
@@ -1027,7 +1061,7 @@ public class AlertController {
 
                 if (mCursor != null) {
                     adapter = new SimpleCursorAdapter(mContext, layout, mCursor,
-                            new String[] { mLabelColumn }, new int[] { android.R.id.text1 });
+                            new String[]{mLabelColumn}, new int[]{android.R.id.text1});
                 } else if (mAdapter != null) {
                     adapter = mAdapter;
                 } else {

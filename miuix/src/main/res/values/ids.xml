@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+ * Copyright (C) 2013, Xiaomi Inc. All rights reserved.
+ */
+-->
+<resources>
+    <!-- The id of ActionMenuPresenter -->
+    <item type="id" name="action_menu_presenter"/>
+    <!-- The id of circular ProgressBar on the ActionBar. -->
+    <item type="id" name="progress_circular" />
+    <!-- The id of horizontal ProgressBar on the ActionBar. -->
+    <item type="id" name="progress_horizontal" />
+    <!-- The id of ViewPager. -->
+    <item type="id" name="view_pager"/>
+    <!-- The id of NavigationLayout's child view. -->
+    <item type="id" name="navigation"/>
+    <!-- The id of NavigationLayout's child view.-->
+    <item type="id" name="content"/>
+    <!-- The id for picture clock. -->
+    <item type="id" name="time_display"/>
+    <!-- The id for date time picker. -->
+    <item type="id" name="am_pm"/>
+    <!-- The id for action bar more icon. -->
+    <item type="id" name="more" />
+    <!-- The id for right arrow in preference. -->
+    <item type="id" name="arrow_right" />
+    <!-- The id for right value in preference. -->
+    <item type="id" name="value_right" />
+    <!-- The id for custom panel in dialog layout. -->
+    <item type="id" name="customPanel" />
+    <!-- The id for message view in dialog layout. -->
+    <item type="id" name="message" />
+    <!-- The id for hybrid view in hybrid activity/fragment. -->
+    <item type="id" name="hybrid_view" />
+    <!-- The id for status bar in preview window layout. -->
+    <item type="id" name="status_bar" />
+    <!-- The id for header view in NestedHeaderLayout. -->
+    <item type="id" name="header_view" />
+</resources>

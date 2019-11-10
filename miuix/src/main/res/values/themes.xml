@@ -13,6 +13,11 @@
     <style name="Theme.AppCompat">
     </style>
 
+    <style name="Theme.Light.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
     <!-- The light theme for dialog. -->
     <style name="Theme.Light.Dialog">
         <item name="android:windowFrame">@null</item>
@@ -24,6 +29,16 @@
         <item name="android:windowCloseOnTouchOutside">true</item>
         <item name="android:windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
+
+        <item name="windowMaxWidthMinor">@dimen/dialog_max_width_minor</item>
+                <item name="windowMaxWidthMajor">@dimen/dialog_max_width_major</item>
+                <item name="windowMaxHeightMinor">@dimen/dialog_max_height_minor</item>
+                <item name="windowMaxHeightMajor">@dimen/dialog_max_height_major</item>
+                <!-- do not fix dialog width or height by default. see Theme.Light.Dialog.FixedSize -->
+                <item name="windowFixedWidthMajor">0dip</item>
+                <item name="windowFixedWidthMinor">0dip</item>
+                <item name="windowFixedHeightMajor">0dip</item>
+                <item name="windowFixedHeightMinor">0dip</item>
     </style>
 
     <!-- The light theme for alert dialog. -->
