@@ -1,1 +1,1 @@
-include ':app', ':lib_miuix', ':app_dialogactivity'
+include ':app', ':lib_miuix', ':app_dialogactivity', ':app_animate'
