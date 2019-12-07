@@ -11,9 +11,9 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/dialogactivity" />
-            <option value="$PROJECT_DIR$/miuix" />
+            <option value="$PROJECT_DIR$/app_dialogactivity" />
+            <option value="$PROJECT_DIR$/app_finance" />
+            <option value="$PROJECT_DIR$/lib_miuix" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
