@@ -80,11 +80,11 @@ public class ConnectStatePreference extends Preference {
             case STATE_DISCONNECTED:
 
                 imageView.setImageState(DISCONNECTED_STATE, true);
-                mParentView.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.ic_brightness_1_black_24dp));
+                mParentView.setBackground(ContextCompat.getDrawable(getContext(), android.R.color.darker_gray));
                 break;
             case STATE_CONNECTED:
                 imageView.setImageState(CONNECTED_STATE, true);
-                mParentView.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.ic_brightness_1_blue_24dp));
+                mParentView.setBackground(ContextCompat.getDrawable(getContext(), android.R.color.holo_blue_light));
 
                 break;
 
