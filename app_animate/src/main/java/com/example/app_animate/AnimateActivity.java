@@ -1,14 +1,13 @@
 package com.example.app_animate;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.dynamicanimation.animation.DynamicAnimation;
-import androidx.dynamicanimation.animation.SpringAnimation;
-import androidx.dynamicanimation.animation.SpringForce;
-
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.HashSet;
+import java.util.Hashtable;
 
 public class AnimateActivity extends AppCompatActivity {
 
@@ -21,11 +20,5 @@ public class AnimateActivity extends AppCompatActivity {
 
 
     public void doClick(View v) {
-//        v.postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                springAnimation_enlarge.start();
-//            }
-//        }, 2000);
     }
 }

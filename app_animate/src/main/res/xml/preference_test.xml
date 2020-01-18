@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:key="legal_screen">
+
+    <com.example.app_animate.preference.ConnectStatePreference
+        android:key="connect"
+        android:icon="@drawable/ic_launcher_background"
+        android:summary="a test preference"
+        android:title="多状态">
+
+    </com.example.app_animate.preference.ConnectStatePreference>
+
+</PreferenceScreen>
