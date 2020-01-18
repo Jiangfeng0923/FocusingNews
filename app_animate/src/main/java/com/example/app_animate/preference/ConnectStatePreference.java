@@ -2,9 +2,7 @@ package com.example.app_animate.preference;
 
 import android.content.Context;
 import android.graphics.drawable.AnimatedVectorDrawable;
-import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.util.StateSet;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -15,19 +13,19 @@ import androidx.preference.PreferenceViewHolder;
 import com.example.app_animate.R;
 
 public class ConnectStatePreference extends Preference {
-    public static final int STATE_ENABLED = 0;
+    public static final int STATE_DISCONNECTED = 0;
     public static final int STATE_CONNECTED = 1;
     public static final int STATE_CONNECTING = 2;
     private static final int STATE_DISABLED = 3;
 
 
-    int[] CONNECTED_STATE = new int[]{android.R.attr.state_selected};
-    int[] DISCONNECTED_STATE = new int[]{android.R.attr.state_enabled};
+    int[] CONNECTED_STATE = new int[]{R.attr.state_connected};
+    int[] DISCONNECTED_STATE = new int[]{-R.attr.state_connected};
 
-    private int mState = STATE_CONNECTED;
+    private int mState = STATE_DISCONNECTED;
     private AnimatedVectorDrawable mBackground;
     private View mParentView;
-    private ImageView imageView ;
+    private ImageView imageView;
 
     public ConnectStatePreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
@@ -51,6 +49,11 @@ public class ConnectStatePreference extends Preference {
         updateState();
     }
 
+
+    public int getConnectState() {
+        return mState;
+    }
+
     @Override
     public void onBindViewHolder(PreferenceViewHolder holder) {
         super.onBindViewHolder(holder);
@@ -71,21 +74,18 @@ public class ConnectStatePreference extends Preference {
                     drawableCompat.start();
                     mParentView.setBackground(drawableCompat);
                 }
-//                getIcon().setState(DISCONNECTED_STATE);
-//                imageView.setEnabled(false);
-                imageView.setImageState(DISCONNECTED_STATE,true);
+
+                imageView.setImageState(DISCONNECTED_STATE, true);
                 break;
-            case STATE_ENABLED:
-//                getIcon().setState(DISCONNECTED_STATE);
-//                imageView.setEnabled(false);
-                imageView.setImageState(DISCONNECTED_STATE,true);
+            case STATE_DISCONNECTED:
+
+                imageView.setImageState(DISCONNECTED_STATE, true);
                 mParentView.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.ic_brightness_1_black_24dp));
                 break;
             case STATE_CONNECTED:
-                imageView.setImageState(CONNECTED_STATE,true);
+                imageView.setImageState(CONNECTED_STATE, true);
                 mParentView.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.ic_brightness_1_blue_24dp));
-//                getIcon().setState(CONNECTED_STATE);
-//                imageView.setEnabled(true);
+
                 break;
 
         }
