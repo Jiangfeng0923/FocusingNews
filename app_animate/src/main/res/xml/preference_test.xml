@@ -5,10 +5,10 @@
 
     <com.example.app_animate.preference.ConnectStatePreference
         android:key="connect"
-        android:icon="@drawable/ic_launcher_background"
         android:summary="a test preference"
         android:title="多状态">
 
     </com.example.app_animate.preference.ConnectStatePreference>
 
+<!--    android:icon="@drawable/icon_animate"-->
 </PreferenceScreen>
